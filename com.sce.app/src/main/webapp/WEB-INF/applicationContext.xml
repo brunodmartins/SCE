@@ -4,9 +4,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cliente"
-          class="com.sce.app.Cliente">
-        <property name="message" value="Spring is fun." />
-    </bean>
 
 </beans>
