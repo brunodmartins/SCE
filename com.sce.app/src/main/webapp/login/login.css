@@ -1,0 +1,11 @@
+@CHARSET "US-ASCII";
+
+h1{
+	font-family: monospace;
+	color: blue;	
+}
+
+panel {
+	margin-bottom:20px;
+	margin-left: 1000px;
+}

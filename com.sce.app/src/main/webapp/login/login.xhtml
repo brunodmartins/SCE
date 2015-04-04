@@ -6,15 +6,22 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
- 
 <h:head>
+
+<h:link name="login.css" style="login.css"/>
+<link style="login.css"/>
 </h:head>
 <h:body>
+	<h:outputStylesheet name="login.css"/>
 	<h1>Hello World PrimeFaces</h1>
- 
+
+	<p:panel id="basic" header="Login" footer="Sistema Controlador de Estágio">
 	<h:form>
-	   <p:editor value="#{editor.value}" />
+		<h:outputLabel value="Email"/> <p:inputText id="email" size="20" /> <br></br>
+		<h:outputLabel value="Senha"/> <p:password id="password" feedback="true" size="8" /> <br></br>
+		<h:commandButton value="Logar" /> <h:commandButton value="Cancelar" />  
 	</h:form>
- 
+	</p:panel>
+
 </h:body>
 </html>
