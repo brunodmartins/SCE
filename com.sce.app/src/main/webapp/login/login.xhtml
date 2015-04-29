@@ -17,9 +17,9 @@
 
 	<p:panel id="basic" header="Login" footer="Sistema Controlador de Estágio">
 	<h:form>
-		<h:outputLabel value="Email"/> <p:inputText id="email" size="20" /> <br></br>
-		<h:outputLabel value="Senha"/> <p:password id="password" feedback="true" size="8" /> <br></br>
-		<h:commandButton value="Logar" /> <h:commandButton value="Cancelar" />  
+		<h:outputLabel value="Email"/> <p:inputText id="email" size="20" value="#{user.email}"/> <br></br>
+		<h:outputLabel value="Senha"/> <p:password id="password" feedback="true" size="8" value="#{user.password}" /> <br></br>
+		<h:commandButton value="Logar" action= "#{loginController.efetuarLogin(user)}"/> <h:commandButton value="Cancelar" />  
 	</h:form>
 	</p:panel>
 
