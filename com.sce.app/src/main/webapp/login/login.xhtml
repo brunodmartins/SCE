@@ -5,23 +5,36 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+	
 <h:head>
-
-<h:link name="login.css" style="login.css"/>
-<link style="login.css"/>
+<link type="text/css" rel="stylesheet" href="login.css" />
 </h:head>
-<h:body>
-	<h:outputStylesheet name="login.css"/>
-	<h1>Hello World PrimeFaces</h1>
-
-	<p:panel id="basic" header="Login" footer="Sistema Controlador de Estágio">
-	<h:form>
-		<h:outputLabel value="Email"/> <p:inputText id="email" size="20" value="#{user.email}"/> <br></br>
-		<h:outputLabel value="Senha"/> <p:password id="password" feedback="true" size="8" value="#{user.password}" /> <br></br>
-		<h:commandButton value="Logar" action= "#{loginController.efetuarLogin(user)}"/> <h:commandButton value="Cancelar" />  
-	</h:form>
-	</p:panel>
-
+<h:body>	
+	<h:outputStylesheet name="login.css"/>		
+	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
+	<div class="titulo"><p>Login do Sistema</p></div>
+	<div class="conteudo">		
+		<h:form>
+			<p:panel id="panel" StyleClass="form">
+			  <div class="form">			  	
+			  					        
+			        <p:outputLabel for="firstname" value="E-mail:" />
+			        <p:inputText id="firstname" value="#{userView.firstname}" required="true" label="Firstname">
+			        </p:inputText>			       
+			        <br>
+			        </br>
+			        <p:outputLabel for="lastname" value="Senha:" />
+			        <p:password id="lastname" value="#{userView.lastname}" label="Lastname" required="true"></p:password>
+			         <br> 
+			         </br>  					 
+				     <p:commandButton value="Entrar" update="panel"  icon="ui-icon-check" />
+				     <p:commandButton value="Cancelar" update="panel" icon="ui-icon-check" />    
+				</div>
+		    </p:panel>
+		</h:form>
+	</div>
+	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
 </h:body>
 </html>

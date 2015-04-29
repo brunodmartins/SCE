@@ -92,8 +92,8 @@
 		<!-- Primefaces Theme -->
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
-			<artifactId>glass-x</artifactId>
-			<version>1.0.6</version>
+			<artifactId>blitzer</artifactId>
+			<version>1.0.10</version>
 		</dependency>
 
 	</dependencies>
