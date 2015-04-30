@@ -9,7 +9,7 @@ public class DaoProxy implements ThrowsAdvice {
 
 	@AfterThrowing
 	public void afterException(Exception e){
-		System.out.println("E");
+		System.out.println(e);
 	}
 	
 }
