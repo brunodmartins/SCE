@@ -5,7 +5,6 @@ package com.sce.login;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 

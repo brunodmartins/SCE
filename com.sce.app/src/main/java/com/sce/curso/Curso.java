@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Table
-@Entity
 public class Curso {
 	
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
