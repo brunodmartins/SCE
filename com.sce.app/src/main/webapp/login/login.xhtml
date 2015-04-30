@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	@autor:Letícia Soares
+	Data:30/04/2015
+-->	
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -10,27 +14,41 @@
 	
 <h:head>
 <link type="text/css" rel="stylesheet" href="login.css" />
+<title>Login</title>
 </h:head>
 <h:body>	
-	<h:outputStylesheet name="login.css"/>		
+	<h:outputStylesheet name="login.css"/>	
 	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
 	<div class="titulo"><p>Login do Sistema</p></div>
 	<div class="conteudo">		
 		<h:form>
+		
 			<p:panel id="panel" StyleClass="form">
-			  <div class="form">			  	
-			  					        
+			
+			<!-- Mensagen de erro caso algum campo obrigatório não seja preenchido--> 
+			 <p:messages id="messages"/>
+			  
+			  <div class="form">  
+			  
+			 		 <!--Email do Usuário -->			  			        
 			        <p:outputLabel for="firstname" value="E-mail:" />
-			        <p:inputText id="firstname" value="#{userView.firstname}" required="true" label="Firstname">
+			        <p:inputText id="firstname" value="" required="true" requiredMessage="Digite seu e-mail"> 
 			        </p:inputText>			       
 			        <br>
 			        </br>
+			        
+			        <!--Senha do Usário-->
 			        <p:outputLabel for="lastname" value="Senha:" />
-			        <p:password id="lastname" value="#{userView.lastname}" label="Lastname" required="true"></p:password>
-			         <br> 
-			         </br>  					 
+			        <p:password id="lastname" value="" label="Lastname" required="true" requiredMessage="Digite sua Senha"></p:password>
+			         <div class="cadastro destaque">*Campos Obrigatórios</div>
+			         <br>			         
+			           <div class="cadastro"><a href="">Esqueceu login ou senha?</a></div>   	
+			         </br>  		
+			       		 
 				     <p:commandButton value="Entrar" update="panel"  icon="ui-icon-check" />
-				     <p:commandButton value="Cancelar" update="panel" icon="ui-icon-check" />    
+				     <p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />
+				        				     
+				     <div class="cadastro"><a href="cadastro/cadastro.xhtml">Faça seu cadastro para ter acesso ao Sistema</a></div>   
 				</div>
 		    </p:panel>
 		</h:form>
