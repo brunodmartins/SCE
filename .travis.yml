@@ -1,0 +1,5 @@
+language: java
+jdk:
+  - oraclejdk8
+before_install: mvn install -DskipTests=false -U
+install: mvn test

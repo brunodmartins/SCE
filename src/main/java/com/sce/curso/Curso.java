@@ -1,13 +1,13 @@
 package com.sce.curso;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Table
 public class Curso {
+	//
 	
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long id;
