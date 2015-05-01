@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.sce.login;
+package br.com.sce.login;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

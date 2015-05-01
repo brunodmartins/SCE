@@ -1,15 +1,18 @@
 package br.com.sce.dao;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.aop.ThrowsAdvice;
+import org.springframework.stereotype.Component;
 
 @Aspect
-public class DaoProxy implements ThrowsAdvice {
+@Component
+public class DaoProxy{
 
-	@AfterThrowing(pointcut="execution(* br.com.sce.dao.* ")
-	public void afterException(Exception e){
+	@AfterThrowing(pointcut="within(IDao+) ", throwing="e")
+	public void afterException(JoinPoint joinPoint, Throwable e){
 		System.out.println(e);
 	}
+	
 	
 }

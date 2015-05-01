@@ -8,8 +8,8 @@ import br.com.sce.dao.IDao;
 public class DaoCurso implements IDao<Curso> {
 
 	@Override
-	public void salvarDados(Curso e) throws DaoException {
-		 e.toString();
+	public void salvarDados(Curso e) throws DaoException {		
+		throw new DaoException("Erroo");
 		
 	}
 

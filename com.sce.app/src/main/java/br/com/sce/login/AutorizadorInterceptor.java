@@ -1,4 +1,4 @@
-package com.sce.login;
+package br.com.sce.login;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
