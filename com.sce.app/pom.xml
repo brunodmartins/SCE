@@ -109,8 +109,21 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>4.1.6.RELEASE</version>
 		</dependency>
-	
-		
+
+		<!-- jUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
 
 		<!-- Primefaces Theme -->
 		<dependency>

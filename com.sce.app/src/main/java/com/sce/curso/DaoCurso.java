@@ -9,7 +9,7 @@ public class DaoCurso implements IDao<Curso> {
 
 	@Override
 	public void salvarDados(Curso e) throws DaoException {
-		// TODO Auto-generated method stub
+		 e.toString();
 		
 	}
 
