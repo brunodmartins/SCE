@@ -33,8 +33,8 @@ public class AOPTest {
 	public static void before(){
 	}
 	
-	@Test(expected=DaoException.class)
-	public void teste() throws DaoException{
+	@Test(expected=Exception.class)
+	public void teste() throws Exception{
 		daoCurso.salvarDados(null);
 	}
 

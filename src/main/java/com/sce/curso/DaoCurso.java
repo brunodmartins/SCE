@@ -2,14 +2,30 @@ package com.sce.curso;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 
 public class DaoCurso implements IDao<Curso> {
+	
+	private JdbcTemplate jdbcTemplate;
+		
+	/**
+	 * 
+	 */
+	@Autowired
+	public DaoCurso(DataSource dataSource) {
+		 jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
 
 	@Override
-	public void salvarDados(Curso e) throws DaoException {		
-		throw new DaoException("Erroo");
+	public void salvarDados(Curso e) throws Exception {
+		jdbcTemplate.execute("select * from Curso");		
 		
 	}
 

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface IDao<T> {
 
-	public void salvarDados(T e) throws DaoException;
+	public void salvarDados(T e) throws Exception;
 
 	public void deletarDados(T e) throws DaoException;
 

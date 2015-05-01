@@ -9,9 +9,18 @@
     <context:annotation-config/>
     <aop:aspectj-autoproxy/>
     <context:component-scan base-package="br.com.*"/>
-    
-	
-	
-	
     <bean id="daoCurso" class="com.sce.curso.DaoCurso"></bean>
+    
+    
+  	<!-- Initialization for data source -->
+   <bean id="dataSource" 
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql://179.111.72.176:3306/sce"/>
+      <property name="username" value="root"/>
+      <property name="password" value="61417181@ab"/>
+   </bean>
+    
+    
+    
 </beans>
