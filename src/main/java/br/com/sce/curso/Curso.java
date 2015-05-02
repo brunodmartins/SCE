@@ -1,11 +1,13 @@
-package com.sce.curso;
+package br.com.sce.curso;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Table
+@Entity
 public class Curso {
 	//
 	
