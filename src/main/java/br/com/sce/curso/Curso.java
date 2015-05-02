@@ -2,16 +2,14 @@ package br.com.sce.curso;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table
 @Entity
 public class Curso {
-	//
-	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+		
+	@Id
 	private Long id;
 	
 	@Column

@@ -12,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.curso.Curso;
-import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 
 /**
@@ -35,7 +34,7 @@ public class AOPTest {
 		
 	}
 	
-	@Test(expected=Exception.class)
+	@Test
 	public void teste() throws Exception{
 		Curso c = new Curso();
 		c.setId((long) 1);

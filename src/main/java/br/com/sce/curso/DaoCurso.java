@@ -3,32 +3,38 @@ package br.com.sce.curso;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.sql.DataSource;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 
+@Repository
 public class DaoCurso implements IDao<Curso> {
 	
+	private JdbcTemplate jdbcTemplate;
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+
 	/**
 	 * 
 	 */
-	public DaoCurso() {
-		// TODO Auto-generated constructor stub
+	@Autowired
+	public DaoCurso(DataSource dataSource) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
 
+	@Transactional	
 	@Override
 	public void salvarDados(Curso e) throws Exception {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin();
 		entityManager.persist(e);
-		entityManager.getTransaction().commit();
 	}
 
 	@Override
