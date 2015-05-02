@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-    <context:annotation-config/>
-    <aop:aspectj-autoproxy/>
-    <context:component-scan base-package="br.com.*"/>
-    <bean id="daoCurso" class="com.sce.curso.DaoCurso"></bean>
-    
-    
-  	<!-- Initialization for data source -->
-   <bean id="dataSource" 
-      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql://179.111.72.176:3306/sce"/>
-      <property name="username" value="root"/>
-      <property name="password" value="61417181@ab"/>
-   </bean>
-    
-    
-    
+	<context:annotation-config />
+	<aop:aspectj-autoproxy />
+	<context:component-scan base-package="br.com.*" />
+	<bean id="daoCurso" class="br.com.sce.curso.DaoCurso"></bean>
+
+
+	<!-- Initialization for data source -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/sce" />
+		<property name="username" value="root" />
+		<property name="password" value="61417181@ab" />
+	</bean>
+
+
+
+
 </beans>

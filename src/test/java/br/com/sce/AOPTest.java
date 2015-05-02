@@ -1,19 +1,19 @@
 /**
  * 
  */
-package com.sce.app;
+package br.com.sce;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.sce.curso.Curso;
 import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
-
-import com.sce.curso.Curso;
 
 /**
  * Classe: AOPTeste <br>
@@ -24,6 +24,7 @@ import com.sce.curso.Curso;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
+@ActiveProfiles("test")
 public class AOPTest {
 	
 	@Autowired
@@ -31,11 +32,14 @@ public class AOPTest {
 	
 	@BeforeClass
 	public static void before(){
+		
 	}
 	
 	@Test(expected=Exception.class)
 	public void teste() throws Exception{
-		daoCurso.salvarDados(null);
+		Curso c = new Curso();
+		c.setId((long) 1);
+		daoCurso.salvarDados(c);
 	}
 
 }
