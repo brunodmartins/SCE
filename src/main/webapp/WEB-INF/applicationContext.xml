@@ -13,7 +13,7 @@
 	<aop:aspectj-autoproxy />
 	<tx:annotation-driven />
 	
-	<bean id="daoCurso" class="br.com.sce.curso.DaoCurso"></bean>
+	<bean id="daoCurso" class="br.com.sce.curso.DaoCurso"/>	
 
 	<!-- Datasource para desenvolvimento -->
 	<bean id="dataSource"
