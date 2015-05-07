@@ -13,51 +13,46 @@
 	xmlns:pm="http://primefaces.org/mobile">	
 <h:head>
 
-<title>Cadastro</title>
+<title>Cadastro do Aluno</title>
 <link type="text/css" rel="stylesheet" href="cadastro.css" />
 </h:head>
 <h:body>	
 	<h:outputStylesheet name="cadastro.css"/>	
 	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
-	<div class="titulo"><p>Cadastro do Usuário</p></div>
+	<div class="titulo"><p>Cadastro do Aluno</p></div>
 	<div class="conteudo">		
 		<h:form>
 			<p:panel id="panel">
-			  <div class="form"> 
-			  
+			  <div class="form"> 			  
 				  <h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
 				  
   			        	<!--Nome completo do Usuário -->
 				        <p:outputLabel for="nome" value="Nome Completo"/>
-				       		<p:inputText id="nome" value="" required="true" label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
-				       		
-				       		
+				       		<p:inputText id="nome" value="#{alunoController.aluno.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
+				       					       		
 				       	<!--R.A do Usuário -->	
 				        <p:outputLabel for="ra" value="R.A" />
-				       		 <p:inputText id="ra" value="" required="true" label="ra"></p:inputText>
+				       		 <p:inputText id="ra" value="#{alunoController.aluno.ra}" required="true" label="ra"></p:inputText>
 				       		
 				        <p:outputLabel for="email" value="E-mail" />
-				        	<p:inputText id="email" value="" required="true" label="email"></p:inputText>   
-				        	
+				        	<p:inputText id="email" value="#{alunoController.aluno.email}" required="true" label="email"></p:inputText>				        
 				        	 
 				        <!--Curso do Usuário -->	 			       			   
 				        <p:outputLabel for="curso" value="Curso" />
-				        <p:selectOneMenu id="curso" value="#{selectOneMenuView.console}" style="width:125px">
+				        <p:selectOneMenu id="curso" value="#{alunoController.aluno.curso.nome}" style="width:125px">
 				            <f:selectItem itemLabel="ADS" itemValue="" />
 				            <f:selectItem itemLabel="LOG" itemValue="" />
 				            <f:selectItem itemLabel="POLi" itemValue="" />
 				            <f:selectItem itemLabel="COMEX" itemValue="" />
-				        </p:selectOneMenu>
-			       		
+				        </p:selectOneMenu>			       		
 			       		 
 			       		 <!--Data de Nascimento do Usuário -->			       		 
 			       		<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
-	        				<p:inputMask id="dataNascimento"  value="#{maskView.date}" mask="99/99/9999" required="true" />
-	        				
-	        			
+	        				<p:inputMask id="dataNascimento"  value="#{alunoController.aluno.dtNascimento}" mask="99/99/9999" required="true" />
+	        					        			
 	        			<!--Senha do Usuário -->
 	        			<p:outputLabel for="senha" value="Senha" />
-				        	<p:inputText id="senha" value="" required="true" label="senha"></p:inputText>  
+				        	<p:inputText id="senha" value="#{alunoController.aluno.senha}" required="true" label="senha"></p:inputText>  
 				        	 
 				        	 
 				        <!--Confirmação da senha do Usuário -->	 		        
@@ -66,7 +61,7 @@
 				       		             					 
 					</h:panelGrid> 
 					
-					<p:commandButton value="Confirmar" update="panel" actionListener="#{userView.save}" icon="ui-icon-check" />
+					<p:commandButton value="Confirmar" update="panel" action="#{alunoController.cadastrar()}"  icon="ui-icon-check" />
 					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />  
 				</div>				
 		    </p:panel>
