@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.sce.curso.Curso;
@@ -24,8 +25,6 @@ public class Aluno {
 	private Long ra;
 	@Column
 	private String email;
-	@Column
-	private	Curso curso;
 	@Column
 	private Date dtNascimento;
 	@Column
@@ -50,12 +49,7 @@ public class Aluno {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Curso getCurso() {
-		return curso;
-	}
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
+	
 	public Date getDtNascimento() {
 		return dtNascimento;
 	}
@@ -71,7 +65,7 @@ public class Aluno {
 	@Override
 	public String toString() {
 		return "Aluno [id=" + id + ", nome=" + nome + ", ra=" + ra + ", email="
-				+ email + ", curso=" + curso + ", dtNascimento=" + dtNascimento
+				+ email + ", dtNascimento=" + dtNascimento
 				+ ", senha=" + senha + "]";
 	}	
 	
