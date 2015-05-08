@@ -25,6 +25,7 @@ public class Curso {
 	private String nome;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
+	@JoinColumn(name="idCurso", referencedColumnName="idAluno")
 	private List<Aluno> alunos;
 
 	public List<Aluno> getAlunos() {
