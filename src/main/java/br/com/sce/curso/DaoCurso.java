@@ -35,6 +35,7 @@ public class DaoCurso implements IDao<Curso> {
 	@Override
 	public void salvarDados(Curso e) throws Exception {
 		entityManager.persist(e);
+		
 	}
 
 	@Override

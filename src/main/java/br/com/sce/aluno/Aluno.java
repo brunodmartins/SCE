@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,19 +30,26 @@ public class Aluno {
 	@Column
 	private Date dtNascimento;
 	@Column
-	private String senha;	
+	private String senha;
+	@ManyToOne(targetEntity=Curso.class)
+	private Curso curso;
 	
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public long getRa() {
+	public Long getRa() {
 		return ra;
 	}
-	public void setRa(long ra) {
+	public void setRa(Long ra) {
 		this.ra = ra;
 	}
 	public String getEmail() {
@@ -49,7 +58,6 @@ public class Aluno {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	public Date getDtNascimento() {
 		return dtNascimento;
 	}
@@ -62,12 +70,21 @@ public class Aluno {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 	@Override
 	public String toString() {
 		return "Aluno [id=" + id + ", nome=" + nome + ", ra=" + ra + ", email="
-				+ email + ", dtNascimento=" + dtNascimento
-				+ ", senha=" + senha + "]";
+				+ email + ", dtNascimento=" + dtNascimento + ", senha=" + senha
+				+ ", curso=" + curso + "]";
 	}	
 	
+	
+	
+
 	
 }

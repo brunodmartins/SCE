@@ -1,9 +1,10 @@
 package br.com.sce.aluno;
 import javax.annotation.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class AlunoController {
 	
 	private AlunoService alunoService;
@@ -15,9 +16,8 @@ public class AlunoController {
 		this.alunoService=new AlunoService();
 	}
 	
-	public String cadastrar(){
-		alunoService.salvarDados(aluno);	
-		return "";
+	public void cadastrar(){
+		alunoService.salvarDados(aluno);			
 	}
 	
 	public AlunoService getAlunoService() {
