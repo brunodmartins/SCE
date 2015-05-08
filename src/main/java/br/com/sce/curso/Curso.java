@@ -1,5 +1,6 @@
 package br.com.sce.curso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,8 +26,7 @@ public class Curso {
 	private String nome;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
-	@JoinColumn(name="idCurso", referencedColumnName="idAluno")
-	private List<Aluno> alunos;
+	private List<Aluno> alunos = new ArrayList<Aluno>(0);
 
 	public List<Aluno> getAlunos() {
 		return alunos;
