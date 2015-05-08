@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,13 +18,13 @@ public class Curso {
 		
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "idCurso")
 	private Long id;
 	
 	@Column
 	private String nome;
 	
-	@OneToMany
-	@JoinColumn(name="Curso.id", referencedColumnName="Aluno.id")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
 	private List<Aluno> alunos;
 
 	public List<Aluno> getAlunos() {

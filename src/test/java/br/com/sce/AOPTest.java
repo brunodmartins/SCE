@@ -37,7 +37,6 @@ public class AOPTest {
 	@Test
 	public void teste() throws Exception{
 		Curso c = new Curso();
-		c.setId((long) 1);
 		daoCurso.salvarDados(c);
 	}
 

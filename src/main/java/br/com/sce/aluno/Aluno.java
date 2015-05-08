@@ -4,12 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.sce.curso.Curso;
@@ -20,6 +20,7 @@ public class Aluno {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "idAluno")
 	private Long id;
 	@Column
 	private String nome;
@@ -31,7 +32,9 @@ public class Aluno {
 	private Date dtNascimento;
 	@Column
 	private String senha;
-	@ManyToOne(targetEntity=Curso.class)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCurso", nullable = false)
 	private Curso curso;
 	
 	public Long getId() {
