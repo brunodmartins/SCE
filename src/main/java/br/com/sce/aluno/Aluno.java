@@ -20,6 +20,7 @@ public class Aluno {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "idAluno")
 	private Long id;
 	@Column
 	private String nome;

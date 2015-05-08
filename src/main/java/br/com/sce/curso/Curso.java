@@ -17,13 +17,14 @@ public class Curso {
 		
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "idCurso")
 	private Long id;
 	
 	@Column
 	private String nome;
 	
 	@OneToMany
-	@JoinColumn(name="Curso.id", referencedColumnName="Aluno.id")
+	@JoinColumn(name="idCurso", referencedColumnName="idAluno")
 	private List<Aluno> alunos;
 
 	public List<Aluno> getAlunos() {
