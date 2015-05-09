@@ -18,12 +18,11 @@ import br.com.sce.dao.IDao;
  * Classe: AOPTeste <br>
  * @author Bruno <br>
  * 
- * Propósito:  <br>
- * Data de criação: 01/05/2015 <br>
+ * Propï¿½sito:  <br>
+ * Data de criaï¿½ï¿½o: 01/05/2015 <br>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
-@ActiveProfiles("test")
 public class AOPTest {
 	
 	@Autowired
@@ -37,6 +36,7 @@ public class AOPTest {
 	@Test
 	public void teste() throws Exception{
 		Curso c = new Curso();
+		c.setNome("ADS");
 		daoCurso.salvarDados(c);
 	}
 

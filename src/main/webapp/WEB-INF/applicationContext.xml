@@ -42,7 +42,7 @@
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 	<beans profile="test">
-		<!-- Datasource para testes -->
+		<!-- Datasource para testes  -->
 		<jdbc:embedded-database id="dataSource">
 			<jdbc:script location="file:src/test/java/bancoTeste.sql" />
 		</jdbc:embedded-database>
@@ -54,7 +54,7 @@
 			<property name="jpaVendorAdapter">
 				<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 			</property>
-		</bean>
+		</bean> 
 
 	</beans>
 
