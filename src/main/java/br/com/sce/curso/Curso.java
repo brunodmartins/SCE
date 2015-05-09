@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import br.com.sce.aluno.Aluno;
@@ -18,7 +17,7 @@ import br.com.sce.aluno.Aluno;
 public class Curso {
 		
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idCurso")
 	private Long id;
 	
