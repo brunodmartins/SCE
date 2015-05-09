@@ -23,6 +23,7 @@ import br.com.sce.dao.IDao;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
+@ActiveProfiles("test")
 public class AOPTest {
 	
 	@Autowired
