@@ -18,4 +18,8 @@ public class DaoException extends Exception {
 		super(msg);
 	}
 
+	public DaoException(Throwable exception) {
+		super(exception);
+	}
+
 }

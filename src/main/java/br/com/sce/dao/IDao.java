@@ -15,8 +15,6 @@ public interface IDao<T> {
 
 	public void deletarDados(T e) throws DaoException;
 
-	public void deletarDados(Long id) throws DaoException;
-
 	public List<T> selecionarTodos() throws DaoException;
 
 	public T buscarPorId(Long id) throws DaoException;

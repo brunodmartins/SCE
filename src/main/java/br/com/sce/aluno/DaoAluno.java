@@ -37,13 +37,6 @@ public class DaoAluno implements IDao<Aluno>{
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void deletarDados(Long id) throws DaoException {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public List<Aluno> selecionarTodos() throws DaoException {
 		// TODO Auto-generated method stub

@@ -19,7 +19,7 @@ public class Curso {
 	@GeneratedValue
 	private Long id;
 	
-	@Column
+	@Column(unique=true)
 	private String nome;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
@@ -49,8 +49,6 @@ public class Curso {
 		this.nome = nome;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Curso [id=" + id + ", nome=" + nome + "]";
