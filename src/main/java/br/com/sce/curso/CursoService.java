@@ -8,10 +8,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
+import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;
-import br.com.sce.service.ServiceException;
 
 /**
  * @author bruno.martins
@@ -24,13 +23,15 @@ public class CursoService implements IService<Curso> {
 	private IDao<Curso> genericDao;
 	
 	@Override
-	public void salvarDados(Curso e) throws Exception {
-		genericDao.salvar(e);		
+	public void salvarDados(Curso curso) throws Exception {
+		if(curso.getNome() == null || curso.getNome().isEmpty())
+			throw new BusinessException("O curso precisa ter um nome!");
+		genericDao.salvar(curso);		
 	}
 
 	@Override
-	public void deletarDados(Curso e) throws Exception {
-		genericDao.deletar(e);
+	public void deletarDados(Curso curso) throws Exception {
+		genericDao.deletar(curso);
 	}
 
 	@Override
