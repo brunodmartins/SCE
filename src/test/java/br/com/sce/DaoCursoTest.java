@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.curso.Curso;
 import br.com.sce.dao.DaoException;
+import br.com.sce.dao.GenericDao;
 import br.com.sce.dao.IDao;
 
 /**
@@ -35,13 +36,15 @@ public class DaoCursoTest {
 	private IDao<Curso> daoCurso;
 	
 	@Autowired
+	private GenericDao<Curso> genericDao;
+	
+	@Autowired
 	private DataSource dataSource;
 
 	@Test
 	public void gravarCursoComSucesso() throws Exception{
 		Curso c = new Curso();
-		c.setNome("ADS");
-		daoCurso.salvarDados(c);
+		genericDao.salvar(c);
 	}
 	
 	@Test(expected=DaoException.class)

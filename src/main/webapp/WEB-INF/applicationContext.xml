@@ -13,7 +13,11 @@
 	<aop:aspectj-autoproxy />
 	<tx:annotation-driven />
 	
-	<bean id="daoCurso" class="br.com.sce.curso.DaoCurso"/>	
+	<bean class = "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+	
+	<bean id="daoCurso" class="br.com.sce.curso.DaoCurso"/>
+	<bean id="genericDao" class="br.com.sce.dao.GenericDao"/>
+		
 
 	<!-- Datasource para desenvolvimento -->
 	<bean id="dataSource"
