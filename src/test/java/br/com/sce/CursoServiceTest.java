@@ -1,5 +1,6 @@
 package br.com.sce;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import br.com.sce.service.IService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
 @ActiveProfiles("test")
+@org.springframework.transaction.annotation.Transactional
 public class CursoServiceTest {
 	
 	@Autowired

@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -12,27 +14,19 @@ import org.springframework.stereotype.Repository;
 public class GenericDao<T> implements IDao<T>{
 	
 	
-	private EntityManagerFactory emf;
+	@PersistenceContext
+	private EntityManager em;
 		
 	private Class<T> typeParameterClass;
-
-	@PersistenceUnit
-	public void setEntityManagerFactory(EntityManagerFactory emf) {
-		this.emf = emf;
-	}
-	
-	private EntityManager getEntityManager(){
-		return emf.createEntityManager();
-	}
 	
 	@Override
+	@Transactional
 	public void salvar(T e){
-		getEntityManager().persist(e);
+		em.persist(e);
 	}
 
 	@Override
 	public void deletar(T e) throws DaoException {
-		EntityManager em = getEntityManager();
 		T merge = em.merge(e);
 		System.out.println(merge);
 		em.remove(em.contains(e) ? e : em.merge(e));
@@ -45,10 +39,12 @@ public class GenericDao<T> implements IDao<T>{
 	}
 
 	@Override
-	public T buscarPorId(Class<?> clazz, Long id) throws DaoException {
-		T find = (T) getEntityManager().find(clazz, id);
-		return find;
+	public T buscarPorId(Class<?> t, Long id) throws DaoException {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 	
 
 }
