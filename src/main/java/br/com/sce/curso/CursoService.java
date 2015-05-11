@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;
@@ -31,6 +32,8 @@ public class CursoService implements IService<Curso> {
 
 	@Override
 	public void deletarDados(Curso curso) throws Exception {
+		if(curso.getId() == null)
+			throw new DaoException("O curso " + curso.getNome() + " não possui ID");
 		genericDao.deletar(curso);
 	}
 
