@@ -20,12 +20,6 @@ public class AlunoService implements IService<Aluno> {
 	}
 
 	@Override
-	public void deletarDados(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public List<Aluno> selecionarTodos() {
 		// TODO Auto-generated method stub
 		return null;

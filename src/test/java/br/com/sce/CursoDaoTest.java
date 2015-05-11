@@ -6,7 +6,6 @@ package br.com.sce;
 import javax.sql.DataSource;
 
 import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.curso.Curso;
 import br.com.sce.dao.DaoException;
-import br.com.sce.dao.GenericDao;
 import br.com.sce.dao.IDao;
 
 /**
@@ -30,13 +28,11 @@ import br.com.sce.dao.IDao;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
 @ActiveProfiles("test")
-public class DaoCursoTest {
+public class CursoDaoTest {
 	
+
 	@Autowired
-	private IDao<Curso> daoCurso;
-	
-	@Autowired
-	private GenericDao<Curso> genericDao;
+	private IDao<Curso> genericDao;
 	
 	@Autowired
 	private DataSource dataSource;
@@ -51,27 +47,36 @@ public class DaoCursoTest {
 	public void gravarCursoDuplicado() throws Exception{
 		Curso c = new Curso();
 		c.setNome("C1");
-		daoCurso.salvarDados(c);
-		daoCurso.salvarDados(c);
+		try{
+			genericDao.salvar(c);
+			genericDao.salvar(c);
+		}catch(Exception e){
+			throw new DaoException(e);
+		}
 	}
 	
 	@Test
 	public void deletarCurso() throws Exception{
 		Curso c = new Curso();
 		c.setNome("Teste");
-		daoCurso.salvarDados(c);		
-		daoCurso.deletarDados(c);
+		genericDao.salvar(c);
+		genericDao.deletar(c);
 	}
 
 	@Test(expected = DaoException.class)
 	public void deletarCursoNaoEncontrado() throws Exception{
-		Curso c = new Curso();
-		daoCurso.deletarDados(c);
+		Curso c = null;
+		try{
+			genericDao.deletar(c);
+		}catch(Exception e){
+			throw new DaoException(e);
+		}
+		
 	}
 	
 	@After
 	public void after(){
-		System.out.println("Deletando dados");
+		System.out.println("Deletando ");
 		new JdbcTemplate(dataSource).execute("delete from Curso");
 	}	
 

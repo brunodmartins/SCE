@@ -11,12 +11,12 @@ import java.util.List;
  */
 public interface IDao<T> {
 
-	public void salvarDados(T e) throws Exception;
+	void salvar(T e) throws DaoException;
 
-	public void deletarDados(T e) throws DaoException;
+	void deletar(T e) throws DaoException;
 
-	public List<T> selecionarTodos() throws DaoException;
+	T buscarPorId(Class<?> t, Long id) throws DaoException;
 
-	public T buscarPorId(Long id) throws DaoException;
+	List<T> selecionarTodos(Class<?> clazz) throws DaoException;
 
 }

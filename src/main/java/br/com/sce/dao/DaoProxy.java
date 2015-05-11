@@ -11,7 +11,7 @@ public class DaoProxy{
 
 	@AfterThrowing(pointcut="within(IDao+) ", throwing="e")
 	public void afterException(JoinPoint joinPoint, Throwable e) throws DaoException{
-		System.out.println("ExceÃ§Ã£o: " + e);
+		System.out.println("Exceção: " + e);
 	}
 	
 	

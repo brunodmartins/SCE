@@ -5,42 +5,42 @@ package br.com.sce.curso;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.sce.dao.DaoException;
+import br.com.sce.dao.IDao;
 import br.com.sce.service.IService;
+import br.com.sce.service.ServiceException;
 
 /**
  * @author bruno.martins
  *
  */
+@Service
 public class CursoService implements IService<Curso> {
 
+	@Autowired
+	private IDao<Curso> genericDao;
+	
 	@Override
-	public void salvarDados(Curso e) {
-		// TODO Auto-generated method stub
-		
+	public void salvarDados(Curso e) throws Exception {
+		genericDao.salvar(e);		
 	}
 
 	@Override
-	public void deletarDados(Curso e) {
-		// TODO Auto-generated method stub
-		
+	public void deletarDados(Curso e) throws Exception {
+		genericDao.deletar(e);
 	}
 
 	@Override
-	public void deletarDados(Long id) {
-		// TODO Auto-generated method stub
-		
+	public List<Curso> selecionarTodos() throws Exception {
+		return genericDao.selecionarTodos(Curso.class);
 	}
 
 	@Override
-	public List<Curso> selecionarTodos() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Curso buscarPorId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Curso buscarPorId(Long id) throws Exception {
+		return genericDao.buscarPorId(Curso.class, id);
 	}
 
 	
