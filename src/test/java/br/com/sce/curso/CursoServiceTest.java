@@ -1,4 +1,4 @@
-package br.com.sce;
+package br.com.sce.curso;
 
 
 import org.junit.Test;
@@ -8,15 +8,14 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.sce.TestConfig;
 import br.com.sce.curso.Curso;
 import br.com.sce.dao.DaoException;
 import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
-@ActiveProfiles("test")
-@org.springframework.transaction.annotation.Transactional
+@TestConfig
 public class CursoServiceTest {
 	
 	@Autowired

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.sce;
+package br.com.sce.curso;
 
 import javax.sql.DataSource;
 
@@ -16,21 +16,20 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.sce.TestConfig;
 import br.com.sce.curso.Curso;
 import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 
 /**
- * Classe: AOPTeste <br>
+ * Classe: CursoDaoTest <br>
  * @author Bruno <br>
  * 
- * PropÃ³sito:  <br>
- * Data de criaÃ§Ã£oo: 01/05/2015 <br>
+ * Propósito:  <br>
+ * Data de criação: 01/05/2015 <br>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
-@ActiveProfiles("test")
-@Transactional
+@TestConfig
 public class CursoDaoTest {
 	
 

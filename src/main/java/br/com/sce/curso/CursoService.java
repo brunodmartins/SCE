@@ -39,7 +39,7 @@ public class CursoService implements IService<Curso> {
 
 	@Override
 	public List<Curso> selecionarTodos() throws Exception {
-		return genericDao.selecionarTodos(Curso.class);
+		return genericDao.selecionarTodos();
 	}
 
 	@Override

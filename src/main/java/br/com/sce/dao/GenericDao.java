@@ -2,6 +2,7 @@ package br.com.sce.dao;
 
 import java.util.List;
 
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
@@ -19,6 +20,8 @@ public class GenericDao<T> implements IDao<T>{
 		
 	private Class<T> typeParameterClass;
 	
+	private final String SELECT_ALL = "from Curso";
+	
 	@Override
 	@Transactional
 	public void salvar(T e){
@@ -33,9 +36,8 @@ public class GenericDao<T> implements IDao<T>{
 	}
 
 	@Override
-	public List<T> selecionarTodos(Class<?> clazz) throws DaoException {
-//		getEntityManager().		
-		return null;
+	public List<T> selecionarTodos() throws DaoException {		
+		return em.createQuery(SELECT_ALL).getResultList();
 	}
 
 	@Override

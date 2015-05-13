@@ -17,6 +17,6 @@ public interface IDao<T> {
 
 	T buscarPorId(Class<?> t, Long id) throws DaoException;
 
-	List<T> selecionarTodos(Class<?> clazz) throws DaoException;
+	List<T> selecionarTodos() throws DaoException;
 
 }
