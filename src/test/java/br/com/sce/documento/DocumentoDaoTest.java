@@ -19,7 +19,9 @@ public class DocumentoDaoTest {
 	@Autowired
 	private IDao<Documento> dao;
 	
+	
 	@Test
+	@SuppressWarnings("unchecked")
 	public void salvarDocumento() throws DaoException{
 		Documento documento = new Documento();
 		dao = Mockito.mock(IDao.class);
@@ -29,6 +31,16 @@ public class DocumentoDaoTest {
 		dao.salvar(documento);
 		Mockito.verify(dao).salvar(documento);
 	}
+	
+	@Test
+	@SuppressWarnings("unchecked")
+	public void deletarDocumento() throws DaoException{
+		Documento documento = Mockito.mock(Documento.class);
+		dao = Mockito.mock(IDao.class);
+		dao.deletar(documento);
+		Mockito.verify(dao).deletar(documento);
+	}
+	
 	
 
 }

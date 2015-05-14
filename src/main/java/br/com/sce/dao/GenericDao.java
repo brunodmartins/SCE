@@ -2,11 +2,8 @@ package br.com.sce.dao;
 
 import java.util.List;
 
-import javax.management.Query;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -18,6 +15,7 @@ public class GenericDao<T> implements IDao<T>{
 	@PersistenceContext
 	private EntityManager em;
 		
+	@SuppressWarnings("unused")
 	private Class<T> typeParameterClass;
 	
 	private final String SELECT_ALL = "from Curso";
@@ -25,25 +23,34 @@ public class GenericDao<T> implements IDao<T>{
 	@Override
 	@Transactional
 	public void salvar(T e){
-		em.persist(e);
+		if(em.contains(e)){
+			em.merge(e);
+		}else{
+			em.persist(e);
+		}
+		
 	}
 
 	@Override
 	public void deletar(T e) throws DaoException {
-		T merge = em.merge(e);
-		System.out.println(merge);
-		em.remove(em.contains(e) ? e : em.merge(e));
+		if(em.contains(e)){
+			em.merge(e);
+		}else{
+			em.remove(e);
+		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> selecionarTodos() throws DaoException {		
 		return em.createQuery(SELECT_ALL).getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T buscarPorId(Class<?> t, Long id) throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+		Object find = em.find(t, id);
+		return (T) find;
 	}
 
 	
