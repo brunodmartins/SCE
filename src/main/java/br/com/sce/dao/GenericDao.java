@@ -33,11 +33,7 @@ public class GenericDao<T> implements IDao<T>{
 
 	@Override
 	public void deletar(T e) throws DaoException {
-		if(em.contains(e)){
-			em.merge(e);
-		}else{
-			em.remove(e);
-		}
+		em.remove(em.contains(e) ? e : em.merge(e));
 	}
 
 	@SuppressWarnings("unchecked")
