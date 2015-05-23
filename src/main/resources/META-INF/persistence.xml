@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="desenv">
+		<description>Banco de Dados para desenvolvimento</description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<!-- DADOS CONEXAO -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="61417181@ab" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sce" />
+			<property name="hibernate.default_schema" value="sce" />
+
+			<!-- CONFIGURACAO -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.archive.autodetection" value="class" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
+		<description>Banco de Dados para testes</description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<!-- DADOS CONEXAO -->
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<!-- CONFIGURACAO -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.transaction.flush_before_completion"
+				value="true" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
