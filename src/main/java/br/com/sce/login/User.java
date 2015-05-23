@@ -3,38 +3,23 @@
  */
 package br.com.sce.login;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 /**
  * Classe: User <br>
  * @author Bruno <br>
  * 
- * Propï¿½sito:  <br>
- * Data de criaï¿½ï¿½o: 28/04/2015 <br>
+ * Propósito:  <br>
+ * Data de criação: 28/04/2015 <br>
  */
-@Entity
+@ManagedBean
+@RequestScoped
 public class User {
 	
-	@Id
-	@GeneratedValue
-	private Long id;
-	@Column
-	private String nome;
-
-	@Column
 	private String email;
-
-	@Column
 	private String password;
 	
-	private Permissao permissao;
-
 	/**
 	 * @return the email
 	 */
@@ -42,19 +27,6 @@ public class User {
 		return email;
 	}
 
-	public Long getId() {
-		return id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
-	}
-	
 	/**
 	 * @param email the email to set
 	 */
@@ -62,12 +34,11 @@ public class User {
 		this.email = email;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
 	}
 
 	/**
@@ -75,14 +46,6 @@ public class User {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Permissao getPermissao() {
-		return permissao;
-	}
-
-	public void setPermissao(Permissao permissao) {
-		this.permissao = permissao;
 	}
 
 }
