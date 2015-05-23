@@ -14,11 +14,11 @@
 <h:head>
 
 <title>Cadastro do Aluno</title>
-<link type="text/css" rel="stylesheet" href="cadastro.css" />
+<link type="text/css" rel="stylesheet" href="aluno.css" />
 </h:head>
 <h:body>	
-	<h:outputStylesheet name="cadastro.css"/>	
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
+	<h:outputStylesheet name="aluno.css"/>	
+	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a><a>Cadastro de Curso</a></div>	
 	<div class="titulo"><p>Cadastro do Aluno</p></div>
 	<div class="conteudo">		
 		<h:form>
@@ -28,14 +28,14 @@
 				  
   			        	<!--Nome completo do Usuário -->
 				        <p:outputLabel for="nome" value="Nome Completo"/>
-				       		<p:inputText id="nome" value="#{alunoController.aluno.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
+				       		<p:inputText size="50" id="nome" value="#{alunoController.aluno.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
 				       					       		
 				       	<!--R.A do Usuário -->	
 				        <p:outputLabel for="ra" value="R.A" />
 				       		 <p:inputText id="ra" value="#{alunoController.aluno.ra}" required="true" label="ra"></p:inputText>
 				       		
 				        <p:outputLabel for="email" value="E-mail" />
-				        	<p:inputText id="email" value="#{alunoController.aluno.email}" required="true" label="email"></p:inputText>				        
+				        	<p:inputText size="30" id="email" value="#{alunoController.aluno.email}" required="true" label="email"></p:inputText>				        
 				        	 
 				        <!--Curso do Usuário -->	 			       			   
 				        <p:outputLabel for="curso" value="Curso" />
