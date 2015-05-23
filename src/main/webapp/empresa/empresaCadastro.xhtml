@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	@autor:João
+	Data:20/05/2015
+-->	
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">	
+<h:head>
+
+<title>Cadastro de Empresa</title>
+<link type="text/css" rel="stylesheet" href="empresa.css" />
+</h:head>
+<h:body>	
+	<h:outputStylesheet name="empresa.css"/>	
+	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
+	<div class="titulo"><p>Cadastro da Empresa</p></div>
+	<div class="conteudo">		
+		<h:form>
+			<p:panel id="panel">
+			  <div class="form"> 			  
+				  <h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
+				  
+  			        	<!--Nome da Empresa -->
+				        <p:outputLabel for="nome" value="Nome"/>
+				       		<p:inputText id="nome" value="#{empresaController.empresa.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite o nome da empresa"></p:inputText>
+				       					       		
+				       	<!--CNPJ da Empresa -->	
+				        <p:outputLabel for="cnpj" value="CNPJ" />
+				       		 <p:inputText id="cnpj" value="#{empresaController.empresa.cnpj}" required="true" label="cnpj"></p:inputText>
+				       		
+				        <!-- Endereço da Empresa -->
+				        <p:outputLabel for="endereco" value="Endereço" />
+				        	<p:inputText id="endereco" value="#{enderecoController.empresa.endereco}" required="true" label="endereco"></p:inputText>				        
+				        
+						<!--Telefone da Empresa -->
+						<p:outputLabel for="telefone" value="Telefone" />
+	        				<p:inputMask id="telefone"  value="#{empresaController.empresa.telefone}" label="telefone" required="true" />				        	 			       		
+			       		 
+			       		<!--Data de Inicio do Convenio -->			       		 
+			       		<p:outputLabel for="dataConvenio" value="Data de Inicio do Convenio" />
+	        				<p:inputMask id="inicioConvenio"  value="#{empresaController.empresa.inicioConvenio}" mask="99/99/9999" required="true" />
+	        					        				             					 
+					</h:panelGrid> 
+					
+					<p:commandButton value="Confirmar" update="panel" action="#{empresaController.gravarEmpresa()}"  icon="ui-icon-check" />
+					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />  
+				</div>				
+		    </p:panel>
+		</h:form>
+	</div>
+	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
+</h:body>
+</html>
