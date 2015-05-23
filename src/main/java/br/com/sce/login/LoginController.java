@@ -6,6 +6,7 @@ package br.com.sce.login;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -20,8 +21,12 @@ import org.springframework.stereotype.Controller;
 @SessionScoped
 public class LoginController {
 	
+	@Autowired
+	private ILoginService loginService; 
+	
 	public void efetuarLogin(User user) {
-		System.out.println(user);
+		loginService.executarLogin(user);
+		
 	}
 
 }

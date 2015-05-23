@@ -5,6 +5,9 @@ package br.com.sce.login;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Classe: User <br>
@@ -17,9 +20,18 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class User {
 	
+	@Id
+	@GeneratedValue
+	private Long id;
+	@Column
+	private String nome;
+
+	@Column
 	private String email;
+
+	@Column
 	private String password;
-	
+
 	/**
 	 * @return the email
 	 */
@@ -27,6 +39,19 @@ public class User {
 		return email;
 	}
 
+	public Long getId() {
+		return id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	
 	/**
 	 * @param email the email to set
 	 */
@@ -34,11 +59,12 @@ public class User {
 		this.email = email;
 	}
 
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	/**
