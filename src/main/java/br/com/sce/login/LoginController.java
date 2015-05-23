@@ -3,25 +3,45 @@
  */
 package br.com.sce.login;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 /**
  * Classe: LoginController <br>
  * @author Bruno <br>
  * 
- * Propósito:  <br>
- * Data de criação: 28/04/2015 <br>
+ * Propï¿½sito:  <br>
+ * Data de criaï¿½ï¿½o: 28/04/2015 <br>
  */
 @Controller
-@ManagedBean
-@SessionScoped
+@Scope("request")
 public class LoginController {
 	
-	public void efetuarLogin(User user) {
+	private User user;
+	
+	@Autowired
+	private ILoginService loginService;
+	
+	public LoginController() {
+		user = new User();
+	}
+	
+	public void efetuarLogin() {
 		System.out.println(user);
+		System.out.println(loginService);
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
 	}
 
 }

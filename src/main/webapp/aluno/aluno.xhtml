@@ -18,7 +18,7 @@
 </h:head>
 <h:body>	
 	<h:outputStylesheet name="aluno.css"/>	
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a><a>Cadastro de Curso</a></div>	
+	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a><a>Cadastro de Curso</a><a>Cadastro de Empresa</a></div>	
 	<div class="titulo"><p>Cadastro do Aluno</p></div>
 	<div class="conteudo">		
 		<h:form>
@@ -37,27 +37,30 @@
 				        <p:outputLabel for="email" value="E-mail" />
 				        	<p:inputText size="30" id="email" value="#{alunoController.aluno.email}" required="true" label="email"></p:inputText>				        
 				        	 
-				        <!--Curso do Usuário -->	 			       			   
-				        <p:outputLabel for="curso" value="Curso" />
+ 				        <!--  Curso do Usuário -->	 			       			   
+				        <!-- <p:outputLabel for="curso" value="Curso" />
 				        <p:selectOneMenu id="curso" value="#{alunoController.aluno.curso.nome}" style="width:125px">
 				            <f:selectItem itemLabel="ADS" itemValue="ads" />
 				            <f:selectItem itemLabel="LOG" itemValue="log" />
 				            <f:selectItem itemLabel="POLi" itemValue="poli" />
 				            <f:selectItem itemLabel="COMEX" itemValue="comex" />
-				        </p:selectOneMenu>			       		
+				        </p:selectOneMenu> --> 			       		
 			       		 
 			       		 <!--Data de Nascimento do Usuário -->			       		 
 			       		<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
-	        				<p:inputMask id="dataNascimento"  value="#{alunoController.aluno.dtNascimento}" mask="99/99/9999" required="true" />
+	        				<p:inputText id="dataNascimento" value="#{alunoController.aluno.dtNascimento}" required="true">
+	        					<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo" type="date"/>
+	        				</p:inputText>
 	        					        			
+
 	        			<!--Senha do Usuário -->
 	        			<p:outputLabel for="senha" value="Senha" />
-				        	<p:inputText id="senha" value="#{alunoController.aluno.senha}" required="true" label="senha"></p:inputText>  
+				        	<p:inputText id="senha" value="#{alunoController.aluno.password}" required="true" label="senha"></p:inputText>  
 				        	 
 				        	 
 				        <!--Confirmação da senha do Usuário -->	 		        
-				        <p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
-				       		 <p:inputText id="confirmeSenha" value="" required="true" label="confirmeSenha"></p:inputText>
+				        <!-- <p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
+				       		 <p:inputText id="confirmeSenha" value="1" required="true" label="confirmeSenha"></p:inputText> -->
 				       		             					 
 					</h:panelGrid> 
 					

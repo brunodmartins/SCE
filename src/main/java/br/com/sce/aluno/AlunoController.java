@@ -1,30 +1,46 @@
 package br.com.sce.aluno;
-import javax.annotation.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-@ManagedBean
-@ViewScoped
+import br.com.sce.service.IService;
+
+/**
+ * @author bruno
+ *
+ */
 @Controller
-public class AlunoController {
-	
+@Scope("request")
+public class AlunoController{
+
 	@Autowired
-	private AlunoService alunoService;
+	private IService<Aluno> alunoService;
 	
-	private Aluno aluno;	
+	private Aluno aluno;
 	
 	public AlunoController() {
-		this.aluno=new Aluno();
+		aluno = new Aluno();
 	}
 	
 	public void cadastrar(){
+		System.out.println("AAA");
 		try{
-			alunoService.salvarDados(aluno);			
+			alunoService.salvarDados(aluno);				
 		}catch(Exception e){
 			//TODO
 		}
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public void setAlunoService(AlunoService alunoService) {
+		this.alunoService = alunoService;
 	}
 	
 	
