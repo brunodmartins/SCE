@@ -4,12 +4,12 @@
 package br.com.sce.login;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  * Classe: User <br>
@@ -19,13 +19,13 @@ import javax.persistence.ManyToOne;
  * Data de cria��o: 28/04/2015 <br>
  */
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="USER_TYPE")
 public class User {
 	
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column
-	private String nome;
 
 	@Column
 	private String email;
@@ -45,9 +45,7 @@ public class User {
 	public Long getId() {
 		return id;
 	}
-	public String getNome() {
-		return nome;
-	}
+	
 	/**
 	 * @return the password
 	 */
@@ -65,11 +63,6 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	/**
 	 * @param password the password to set
 	 */

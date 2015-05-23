@@ -27,13 +27,16 @@ public class GenericDao<T> implements IDao<T>{
 			em.merge(e);
 		}else{
 			em.persist(e);
-		}
-		
+		}		
 	}
 
 	@Override
 	public void deletar(T e) throws DaoException {
-		em.remove(em.contains(e) ? e : em.merge(e));
+		if(em.contains(e)){
+			em.merge(e);
+		}else{
+			em.remove(e);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -47,9 +50,6 @@ public class GenericDao<T> implements IDao<T>{
 	public T buscarPorId(Class<?> t, Long id) throws DaoException {
 		Object find = em.find(t, id);
 		return (T) find;
-	}
-
-	
-	
+	}	
 
 }

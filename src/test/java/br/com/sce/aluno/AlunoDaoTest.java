@@ -23,8 +23,8 @@ import br.com.sce.dao.IDao;
  * Classe: AlunoDaoTest <br>
  * @author Bruno <br>
  * 
- * Propósito:  <br>
- * Data de criação: 01/05/2015 <br>
+ * Propï¿½sito:  <br>
+ * Data de criaï¿½ï¿½o: 01/05/2015 <br>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestConfig
@@ -45,7 +45,7 @@ public class AlunoDaoTest {
 		Aluno aluno = new Aluno();
 		aluno.setNome("Bruno Damascneo Martins");
 		aluno.setRa((long) 1410776);
-		aluno.setSenha("senha");
+		aluno.setPassword("senha");
 		aluno.setEmail("bdm2943@mail.com");
 		aluno.setDtNascimento(new Date());
 		Curso c = new Curso();
@@ -61,7 +61,7 @@ public class AlunoDaoTest {
 		Aluno aluno = new Aluno();
 		aluno.setNome("Bruno Damascneo Martins");
 		aluno.setRa((long) 1410776);
-		aluno.setSenha("senha");
+		aluno.setPassword("senha");
 		aluno.setEmail("bdm2943@mail.com");
 		aluno.setDtNascimento(new Date());
 		Curso c = new Curso();

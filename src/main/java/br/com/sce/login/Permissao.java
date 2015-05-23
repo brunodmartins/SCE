@@ -3,7 +3,7 @@ package br.com.sce.login;
 
 public enum Permissao {
 	
-	ADM(1,"*"),
+	ORIENTADOR(1,"*"),
 	ALUNO(2,"/aluno/*");
 	
 	private Integer id;

@@ -30,14 +30,13 @@ public class LoginDao {
 	}
 	
 	public boolean validaUsuario(User user){
-		jdbcTemplate.query("select id,nome from User where email = ? and password = ?"
+		jdbcTemplate.query("select id from User where email = ? and password = ?"
 				, new Object[]{ user.getEmail(), user.getPassword()},  new RowMapper<User>() {
 
 					@Override
 					public User mapRow(ResultSet rs, int arg)
 							throws SQLException {
 						user.setId(rs.getLong(1));
-						user.setNome(rs.getString(2));
 						return user;
 					}
 				});
@@ -72,8 +71,8 @@ public class LoginDao {
 	}
 	
 	public void gravarUsuario(User user){
-		String sql = "insert into User(nome,email,password) values(?,?,?)";
-		Object[] objects = new Object[]{user.getNome(), user.getEmail(), user.getPassword()};
+		String sql = "insert into User(email,password) values(?,?,?)";
+		Object[] objects = new Object[]{user.getEmail(), user.getPassword()};
 		int[] types = new int[]{Types.VARCHAR, Types.VARCHAR, Types.VARCHAR};
 		jdbcTemplate.update(sql, objects, types);
 	}

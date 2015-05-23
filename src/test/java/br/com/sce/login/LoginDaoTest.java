@@ -1,15 +1,16 @@
 package br.com.sce.login;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.TestConfig;
+import br.com.sce.aluno.Aluno;
 import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 
@@ -37,7 +38,6 @@ public class LoginDaoTest {
 	public void before() throws DaoException{
 		usuarioCadastrado = new User();
 		usuarioCadastrado.setEmail("bdm2943@gmail.com");
-		usuarioCadastrado.setNome("Bruno Damasceno Martins");
 		usuarioCadastrado.setPassword("61417181@ab");
 		genericDao.salvar(usuarioCadastrado);
 		
@@ -58,7 +58,8 @@ public class LoginDaoTest {
 	
 	@Test
 	public void validarParametrizacaoADM(){
-		dao.carregarParametrizacao(usuarioCadastrado);
+//		dao.carregarParametrizacao(usuarioCadastrado);
+		//TODO proc
 	}
 	
 

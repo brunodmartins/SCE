@@ -6,8 +6,6 @@ import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.TestConfig;
@@ -32,7 +30,7 @@ public class AlunoServiceTest {
 		Aluno aluno = new Aluno();
 		aluno.setNome("Bruno Damascneo Martins");
 		aluno.setRa((long) 1410776);
-		aluno.setSenha("senha");
+		aluno.setPassword("senha");
 		aluno.setEmail("bdm2943@mail.com");
 		aluno.setDtNascimento(new Date());
 		Curso c = new Curso();
@@ -53,7 +51,7 @@ public class AlunoServiceTest {
 		Aluno aluno = new Aluno();
 		aluno.setNome("Bruno Damascneo Martins");
 		aluno.setRa((long) 1410776);
-		aluno.setSenha("senha");
+		aluno.setPassword("senha");
 		aluno.setEmail("bdm2943@mail.com");
 		aluno.setDtNascimento(new Date());
 		Curso c = new Curso();
@@ -69,7 +67,7 @@ public class AlunoServiceTest {
 		Aluno aluno = new Aluno();
 		aluno.setNome("Bruno Damascneo Martins");
 		aluno.setRa((long) 1410776);
-		aluno.setSenha("senha");
+		aluno.setPassword("senha");
 		aluno.setEmail("bdm2943@mail.com");
 		aluno.setDtNascimento(new Date());
 		Curso c = new Curso();
