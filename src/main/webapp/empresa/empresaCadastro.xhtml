@@ -41,10 +41,12 @@
 						<!--Telefone da Empresa -->
 						<p:outputLabel for="telefone" value="Telefone" />
 	        				<p:inputMask id="telefone"  value="#{empresaController.empresa.telefone}" label="telefone" required="true" />				        	 			       		
-			       		 
-			       		<!--Data de Inicio do Convenio -->			       		 
-			       		<p:outputLabel for="dataConvenio" value="Data de Inicio do Convenio" />
-	        				<p:inputMask id="inicioConvenio"  value="#{empresaController.empresa.inicioConvenio}" mask="99/99/9999" required="true" />
+			       		
+			       		<!-- Data de Inicio do Convênio -->
+			       		<p:outputLabel for="dataConvenio" value="Data de Inicio do Convenio"/>
+			       		<p:inputText id="dataConvenio" value="#{empresaController.empresa.inicioConvenio}" label="">
+						<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo" type="date"/>
+						</p:inputText>
 	        					        				             					 
 					</h:panelGrid> 
 					
