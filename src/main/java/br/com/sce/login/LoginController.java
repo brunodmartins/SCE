@@ -4,7 +4,7 @@
 package br.com.sce.login;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,13 +13,15 @@ import org.springframework.stereotype.Controller;
  * Classe: LoginController <br>
  * @author Bruno <br>
  * 
- * Propósito:  <br>
- * Data de criação: 28/04/2015 <br>
+ * Propï¿½sito:  <br>
+ * Data de criaï¿½ï¿½o: 28/04/2015 <br>
  */
 @Controller
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class LoginController {
+	
+	private User user;
 	
 	@Autowired
 	private ILoginService loginService; 
@@ -27,6 +29,14 @@ public class LoginController {
 	public void efetuarLogin(User user) {
 		loginService.executarLogin(user);
 		
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

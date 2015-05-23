@@ -4,10 +4,9 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.sql.Types;
 
 import javax.sql.DataSource;
-import javax.swing.tree.TreePath;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -43,11 +42,11 @@ public class LoginDao {
 					}
 				});
 		
-		return user.getId() ==0L;		
+		return user.getId() != null;		
 	}
 	
-	public void carregarParametrizacao(User user){
-		jdbcTemplate.execute(new CallableStatementCreator() {
+	public User carregarParametrizacao(User user){
+		return jdbcTemplate.execute(new CallableStatementCreator() {
 			
 			private CallableStatement prepareCall;
 
@@ -64,10 +63,19 @@ public class LoginDao {
 			public User doInCallableStatement(CallableStatement stmt)
 					throws SQLException, DataAccessException {
 				int idParametro = stmt.getInt("idParametrizacao");
-//				Permissao.valueOf("")
-				return null;
+				Permissao permissao = Permissao.values()[idParametro];
+				user.setPermissao(permissao);
+				return user;
 			}
 		});
+
+	}
+	
+	public void gravarUsuario(User user){
+		String sql = "insert into User(nome,email,password) values(?,?,?)";
+		Object[] objects = new Object[]{user.getNome(), user.getEmail(), user.getPassword()};
+		int[] types = new int[]{Types.VARCHAR, Types.VARCHAR, Types.VARCHAR};
+		jdbcTemplate.update(sql, objects, types);
 	}
 	
 }

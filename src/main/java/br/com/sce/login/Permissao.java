@@ -1,5 +1,6 @@
 package br.com.sce.login;
 
+
 public enum Permissao {
 	
 	ADM(1,"*"),
