@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Retention(RetentionPolicy.RUNTIME)
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/applicationContext.xml")
-//@ActiveProfiles("test")
+@ActiveProfiles("test")
 @Transactional
 public @interface TestConfig {
 
