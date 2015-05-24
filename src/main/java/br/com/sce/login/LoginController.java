@@ -3,9 +3,12 @@
  */
 package br.com.sce.login;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Classe: LoginController <br>
@@ -27,9 +30,17 @@ public class LoginController {
 		user = new User();
 	}
 	
-	public void efetuarLogin() {
-		System.out.println(user);
-		System.out.println(loginService);
+	public String efetuarLogin() {
+		try {
+			loginService.executarLogin(user);
+			return "/aluno/aluno.xhtml";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+		
+		
 	}
 
 	public User getUser() {

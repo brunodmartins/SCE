@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.TestConfig;
-import br.com.sce.aluno.Aluno;
 import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 
@@ -54,12 +53,6 @@ public class LoginDaoTest {
 	@Test
 	public void validaUsuarioNaoExistente(){
 		assertFalse(dao.validaUsuario(usuarioNaoCadastrado));
-	}
-	
-	@Test
-	public void validarParametrizacaoADM(){
-//		dao.carregarParametrizacao(usuarioCadastrado);
-		//TODO proc
 	}
 	
 
