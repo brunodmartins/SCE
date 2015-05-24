@@ -18,20 +18,21 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class LoginDao {
-	
-	
+
 	private JdbcTemplate jdbcTemplate;
-	
-	private final String PARAMETRIZACAO = "{? = call pSelParametrizacao(?)}";
-	
+
+	private final String PARAMETRIZACAO = "{call pSelParametrizacao(?,?)}";
+
 	@Autowired
 	public LoginDao(DataSource dataSource) {
-		jdbcTemplate = new JdbcTemplate(dataSource); 
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
-	public boolean validaUsuario(User user){
-		jdbcTemplate.query("select id from User where email = ? and password = ?"
-				, new Object[]{ user.getEmail(), user.getPassword()},  new RowMapper<User>() {
+
+	public boolean validaUsuario(User user) {
+		jdbcTemplate.query(
+				"select id from User where email = ? and password = ?",
+				new Object[] { user.getEmail(), user.getPassword() },
+				new RowMapper<User>() {
 
 					@Override
 					public User mapRow(ResultSet rs, int arg)
@@ -40,20 +41,22 @@ public class LoginDao {
 						return user;
 					}
 				});
-		
-		return user.getId() != null;		
+
+		return user.getId() != null;
 	}
-	
-	public User carregarParametrizacao(User user){
+
+	public User carregarParametrizacao(User user) {	
 		return jdbcTemplate.execute(new CallableStatementCreator() {
-			
+
 			private CallableStatement prepareCall;
 
 			@Override
 			public CallableStatement createCallableStatement(Connection conn)
 					throws SQLException {
 				prepareCall = conn.prepareCall(PARAMETRIZACAO);
-				prepareCall.setLong("id", user.getId());
+				prepareCall.setLong(1, user.getId());
+				prepareCall.registerOutParameter(2, Types.VARCHAR);
+				prepareCall.executeUpdate();
 				return prepareCall;
 			}
 		}, new CallableStatementCallback<User>() {
@@ -61,20 +64,21 @@ public class LoginDao {
 			@Override
 			public User doInCallableStatement(CallableStatement stmt)
 					throws SQLException, DataAccessException {
-				int idParametro = stmt.getInt("idParametrizacao");
-				Permissao permissao = Permissao.values()[idParametro];
+				Integer perm = Integer.parseInt(stmt.getString(2));				
+				Permissao permissao = Permissao.values()[perm-1];
 				user.setPermissao(permissao);
+
 				return user;
 			}
 		});
 
 	}
-	
-	public void gravarUsuario(User user){
+
+	public void gravarUsuario(User user) {
 		String sql = "insert into User(email,password) values(?,?,?)";
-		Object[] objects = new Object[]{user.getEmail(), user.getPassword()};
-		int[] types = new int[]{Types.VARCHAR, Types.VARCHAR, Types.VARCHAR};
+		Object[] objects = new Object[] { user.getEmail(), user.getPassword() };
+		int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR };
 		jdbcTemplate.update(sql, objects, types);
 	}
-	
+
 }
