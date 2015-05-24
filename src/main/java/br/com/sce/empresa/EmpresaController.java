@@ -3,7 +3,6 @@ package br.com.sce.empresa;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;

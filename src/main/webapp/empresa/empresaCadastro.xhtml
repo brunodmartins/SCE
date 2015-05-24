@@ -51,7 +51,24 @@
 					</h:panelGrid> 
 					
 					<p:commandButton value="Confirmar" update="panel" action="#{empresaController.cadastrar()}"  icon="ui-icon-check" />
-					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />  
+					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" /> 
+					
+					<!-- TO DO
+					<p:dataTable	value ="${empresaController.listaEmpresas}"
+									var="empresa"
+									border ="2"
+									rendered="${empresaController.listaEmpresas.size() > 0}">
+						<p:column>
+							<f:facet name="header">Nome</f:facet>
+							${empresa.nome}
+						</p:column>
+						<p:column>
+							<f:facet name="header">CNPJ</f:facet>
+							${empresa.cnpj}
+						</p:column>
+					</p:dataTable>
+					//-->
+					 
 				</div>				
 		    </p:panel>
 		</h:form>
