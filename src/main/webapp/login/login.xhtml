@@ -18,7 +18,7 @@
 </h:head>
 <h:body>	
 	<h:outputStylesheet name="login.css"/>	
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
+	<div class="menu"><span class="logo">SCE</span></div>	
 	<div class="titulo"><p>Login do Sistema</p></div>
 	<div class="conteudo">		
 		<h:form>
@@ -32,20 +32,20 @@
 			  
 			 		 <!--Email do Usuário -->			  			        
 			        <p:outputLabel for="firstname" value="E-mail:" />
-			        <p:inputText id="firstname" value="" required="true" requiredMessage="Digite seu e-mail"> 
+			        <p:inputText id="firstname" value="#{loginController.user.email}" required="true" requiredMessage="Digite seu e-mail"> 
 			        </p:inputText>			       
 			        <br>
 			        </br>
 			        
 			        <!--Senha do Usário-->
 			        <p:outputLabel for="lastname" value="Senha:" />
-			        <p:password id="lastname" value="" label="Lastname" required="true" requiredMessage="Digite sua Senha"></p:password>
+			        <p:password id="lastname" value="#{loginController.user.password}" label="Lastname" required="true" requiredMessage="Digite sua Senha"></p:password>
 			         <div class="cadastro destaque">*Campos Obrigatórios</div>
 			         <br>			         
 			           <div class="cadastro"><a href="">Esqueceu login ou senha?</a></div>   	
 			         </br>  		
 			       		 
-				     <p:commandButton value="Entrar" update="panel"  icon="ui-icon-check" />
+				     <p:commandButton value="Entrar" update="panel"  icon="ui-icon-check" action="#{loginController.efetuarLogin()}"/>
 				     <p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />
 				        				     
 				     <div class="cadastro"><a href="cadastro/cadastro.xhtml">Faça seu cadastro para ter acesso ao Sistema</a></div>   
