@@ -31,12 +31,17 @@ public class EmpresaService implements IService<Empresa> {
 	}
 
 	@Override
-	public List<Empresa> selecionarTodos() throws Exception {
-		return genericDao.selecionarTodos();
+	public List<Empresa> selecionarTodos(Class<?> clazz) throws Exception {
+		return genericDao.selecionarTodos(clazz);
 	}
 
 	@Override
 	public Empresa buscarPorId(Long id) throws Exception {
 		return genericDao.buscarPorId(Empresa.class, id);
+	}
+
+	@Override
+	public void atualizar(Empresa t) throws DaoException {
+		genericDao.atualizar(t);
 	}
 }

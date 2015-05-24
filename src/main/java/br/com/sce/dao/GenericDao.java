@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+
+import br.com.sce.dao.DaoException;
 
 @Repository
 public class GenericDao<T> implements IDao<T>{
@@ -41,8 +44,15 @@ public class GenericDao<T> implements IDao<T>{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> selecionarTodos() throws DaoException {		
-		return em.createQuery(SELECT_ALL).getResultList();
+	public List<T> selecionarTodos(Class<?> clazz) throws DaoException {
+		try{
+			Query query = em.createQuery("from " + clazz.getName());
+			List<T> list = query.getResultList();						
+			return list;
+		}catch(Exception e){
+			em.getTransaction().rollback();
+			throw new DaoException(e);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -50,6 +60,19 @@ public class GenericDao<T> implements IDao<T>{
 	public T buscarPorId(Class<?> t, Long id) throws DaoException {
 		Object find = em.find(t, id);
 		return (T) find;
-	}	
+	}
+	
+	@Override
+	public void atualizar(T entity) throws DaoException {
+		try{
+			em.getTransaction().begin();
+			em.merge(entity);
+			em.getTransaction().commit();
+		}catch(Exception e){
+			em.getTransaction().rollback();
+			throw new DaoException(e);
+		}
+		
+	}
 
 }
