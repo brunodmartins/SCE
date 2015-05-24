@@ -36,7 +36,7 @@
 				       		
 				        <!-- Endereço da Empresa -->
 				        <p:outputLabel for="endereco" value="Endereço" />
-				        	<p:inputText id="endereco" value="#{enderecoController.empresa.endereco}" required="true" label="endereco"></p:inputText>				        
+				        	<p:inputText id="endereco" value="#{empresaController.empresa.endereco}" required="true" label="endereco"></p:inputText>				        
 				        
 						<!--Telefone da Empresa -->
 						<p:outputLabel for="telefone" value="Telefone" />
@@ -50,7 +50,7 @@
 	        					        				             					 
 					</h:panelGrid> 
 					
-					<p:commandButton value="Confirmar" update="panel" action="#{empresaController.gravarEmpresa()}"  icon="ui-icon-check" />
+					<p:commandButton value="Confirmar" update="panel" action="#{empresaController.cadastrar()}"  icon="ui-icon-check" />
 					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />  
 				</div>				
 		    </p:panel>

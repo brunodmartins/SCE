@@ -18,10 +18,10 @@ import br.com.sce.dao.IDao;
 
 /**
  * Classe: CursoDaoTest <br>
- * @author Joï¿½o <br>
+ * @author João Padovan <br>
  * 
  * Propï¿½sito:  <br>
- * Data de criaï¿½ï¿½o: 20/05/2015 <br>
+ * Data de criaï¿½ï¿½o: 24/05/2015 <br>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestConfig

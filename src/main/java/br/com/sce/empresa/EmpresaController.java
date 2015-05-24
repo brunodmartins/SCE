@@ -10,54 +10,62 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.sce.service.IService;
 
+/**
+ * @author João Padovan 
+ */
+
 @ManagedBean
 @ViewScoped
 public class EmpresaController {
 
 	@Autowired
-	IService<Empresa> service;
+	IService<Empresa> empresaService;
 	
 	private Empresa empresa;
 	
-	@PostConstruct
-	public void init() {
+	public EmpresaController() {
 		empresa = new Empresa();
-		service = new EmpresaService();
 	}
 	
-	public void gravarEmpresa(Empresa empresa) {
-		try {
-			service.salvarDados(empresa);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void deletarEmpresa(Empresa empresa) {
-		try {
-			service.deletarDados(empresa);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public List<Empresa> selecionarTodasEmpresa() {
-		try {
-			return service.selecionarTodos();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public Empresa buscarEmpresaPorId(Long id) {
-		try {
-			return service.buscarPorId(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public Empresa getEmpresa() {
 		return empresa;
-		
 	}
+	
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
+	public void setEmpresaService(EmpresaService empresaService) {
+		this.empresaService = empresaService;
+	}
+	
+	public void cadastrar() {
+		try {
+			empresaService.salvarDados(empresa);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MENSAGEM: \n" + e.getMessage());
+		}
+	}
+	
+	public void deletar() {
+		try {
+			empresaService.deletarDados(empresa);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MENSAGEM: \n" + e.getMessage());
+		}
+	}
+	
+	public List<Empresa> selecionarTodos() {
+		try {
+			return empresaService.selecionarTodos();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MENSAGEM: \n" + e.getMessage());
+			return null;
+		}
+	}
+	
 	
 }
