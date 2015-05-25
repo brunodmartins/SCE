@@ -2,12 +2,8 @@ package br.com.sce.empresa;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.context.FacesContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -56,7 +52,8 @@ public class EmpresaController {
 	}
 	
 	public List<Empresa> getEmpresas() throws DaoException {
-		return empresaService.selecionarTodos();
+		empresas = empresaService.selecionarTodos(); 
+		return empresas;
 	}
 
 	public void setEmpresas(List<Empresa> empresas) {

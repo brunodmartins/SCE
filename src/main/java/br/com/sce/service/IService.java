@@ -5,12 +5,7 @@ package br.com.sce.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import br.com.sce.aluno.Aluno;
 import br.com.sce.dao.DaoException;
-import br.com.sce.empresa.Empresa;
 
 /**
  * @author bruno.martins

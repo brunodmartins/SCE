@@ -2,10 +2,8 @@ package br.com.sce.curso;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 
-import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -63,7 +61,8 @@ public class CursoController {
 	}
 
 	public List<Curso> getCursos() throws DaoException {
-		return service.selecionarTodos();
+		cursos = service.selecionarTodos(); 
+		return cursos;
 	}
 
 	public void setCursos(List<Curso> cursos) {

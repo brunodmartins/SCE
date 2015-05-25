@@ -3,12 +3,9 @@ package br.com.sce.empresa;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.sce.TestConfig;
-import br.com.sce.empresa.Empresa;
 import br.com.sce.dao.DaoException;
 import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;

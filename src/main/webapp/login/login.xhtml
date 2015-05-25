@@ -40,10 +40,10 @@
 			        <!--Senha do Usário-->
 			        <p:outputLabel for="lastname" value="Senha:" />
 			        <p:password id="lastname" value="#{loginController.user.password}" label="Lastname" required="true" requiredMessage="Digite sua Senha"></p:password>
-			         <div class="cadastro destaque">*Campos Obrigatórios</div>
-			         <br>			         
-			           <div class="cadastro"><a href="">Esqueceu login ou senha?</a></div>   	
-			         </br>  		
+			         <div class="cadastro destaque">*Campos Obrigatórios</div><br/>			         
+			           <div class="cadastro">
+			           		<a href="">Esqueceu login ou senha?</a>
+			           	</div>   	
 			       		 
 				     <p:commandButton value="Entrar" update="panel"  icon="ui-icon-check" action="#{loginController.efetuarLogin()}"/>
 				     <p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />

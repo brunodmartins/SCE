@@ -9,7 +9,6 @@ import br.com.sce.dao.DaoException;
 import br.com.sce.dao.IDao;
 import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;
-import br.com.sce.service.ServiceException;
 
 @Service
 public class AlunoService implements IService<Aluno> {
