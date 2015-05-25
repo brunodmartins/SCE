@@ -51,6 +51,10 @@ public class EmpresaController {
 		return empresaService;
 	}
 
+	public void setEmpresaService(IService<Empresa> empresaService) {
+		this.empresaService = empresaService;
+	}
+	
 	public List<Empresa> getEmpresas() throws DaoException {
 		return empresaService.selecionarTodos();
 	}

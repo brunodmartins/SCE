@@ -52,16 +52,22 @@ public class SecurityFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("AAAAA");	
 		
-		HttpSession session = ((HttpServletRequest) request).getSession(false);
-		if(session != null){
-			System.out.println(session.getMaxInactiveInterval());
-			System.out.println(session.getLastAccessedTime());
+		System.out.println("AAAAA");	
+		if(!((HttpServletRequest) request).getRequestURI().matches(".*(css|jpg|png|gif|js)")){
+			
+		
+			HttpSession session = ((HttpServletRequest) request).getSession(false);
+			if(session != null){
+				System.out.println(session.getMaxInactiveInterval());
+				System.out.println(session.getLastAccessedTime());
+			}
+			User user = (User) RequestContextHolder.getRequestAttributes().getAttribute("usuario", RequestAttributes.SCOPE_SESSION);
+			System.out.println(user);
+			chain.doFilter(request, response);
+		}else{
+			System.out.println("css");
 		}
-		User user = (User) RequestContextHolder.getRequestAttributes().getAttribute("usuario", RequestAttributes.SCOPE_SESSION);
-		System.out.println(user);
-		chain.doFilter(request, response);
 	}
 
 	/**

@@ -2,12 +2,14 @@
 /*	@autor:Letícia Soares
 	Data:30/04/2015
 */
-	
 body {
     font: 100% arial, verdana, tahoma, sans-serif;
     color: #FFF;  
     overflow-y: scroll;
     overflow-x: hidden;  
+}
+.destaque{
+	color:red;
 }
 
 .rodape {
@@ -89,6 +91,7 @@ a:hover{
 }
 .form{	
 	padding-left: 40%;
+	margin-top: 10%;
 }
 
 .cadastro{
