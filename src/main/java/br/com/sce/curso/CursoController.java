@@ -49,6 +49,10 @@ public class CursoController {
 		return "/curso/cursoCadastro?faces-redirect=true";
 		
 	}
+	
+	public void deletarCurso(Curso curso) throws Exception{
+		service.deletarDados(curso);
+	}
 
 	public Curso getCurso() {
 		return curso;
