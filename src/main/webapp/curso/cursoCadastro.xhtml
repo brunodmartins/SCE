@@ -16,15 +16,16 @@
 <title>Cadastro de Empresa</title>
 <link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
+
 <h:body>	
 	<h:outputStylesheet name="../estrutura.css"/>		
 	<div class="titulo"><p>Cadastro de Curso</p></div>
 	<div class="conteudo">		
 		<h:form>
+			<h:inputHidden value="#{cursoController.curso.id}"/>
 			<p:panel id="panel">
-			  <div class="form"> 			  
+			  <div class="form">	  
 				  <h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
-				  
   			        	<!--Nome do Curso -->
 				        <p:outputLabel for="nome" value="Nome:"/>
 				       		<p:inputText id="nome" value="#{cursoController.curso.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite o nome da curso"/>				       					       						       

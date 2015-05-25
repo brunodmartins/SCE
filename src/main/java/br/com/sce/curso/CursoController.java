@@ -2,10 +2,15 @@ package br.com.sce.curso;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
+
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import br.com.sce.dao.DaoException;
 import br.com.sce.service.IService;
 
 @Controller
@@ -20,7 +25,12 @@ public class CursoController {
 	private List<Curso> cursos;
 	
 	public CursoController() {
-		curso = new Curso();
+		Curso novoCurso = (Curso) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("curso");
+		if(novoCurso != null){
+			this.curso = novoCurso;
+		}else{
+			this.curso = new Curso();
+		}
 	}
 	
 	public void salvarCurso(){
@@ -31,6 +41,14 @@ public class CursoController {
 			e.printStackTrace();
 		}
 	}
+	
+	public String editarCurso(Curso curso){
+		 FacesContext.getCurrentInstance().getExternalContext().getFlash()
+         .put("curso", curso);
+		 this.curso = curso;
+		return "/curso/cursoCadastro?faces-redirect=true";
+		
+	}
 
 	public Curso getCurso() {
 		return curso;
@@ -40,13 +58,14 @@ public class CursoController {
 		this.curso = curso;
 	}
 
-	public List<Curso> getCursos() {
-		return cursos;
+	public List<Curso> getCursos() throws DaoException {
+		return service.selecionarTodos();
 	}
 
 	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
-
 	
 }
+
+ 

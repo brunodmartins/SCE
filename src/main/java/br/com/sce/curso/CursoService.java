@@ -27,7 +27,11 @@ public class CursoService implements IService<Curso> {
 	public void salvarDados(Curso curso) throws Exception {
 		if(curso.getNome() == null || curso.getNome().isEmpty())
 			throw new BusinessException("O curso precisa ter um nome!");
-		genericDao.salvar(curso);		
+		if(curso.getId() == null){
+			genericDao.salvar(curso);
+		}else{
+			genericDao.atualizar(curso);
+		}
 	}
 
 	@Override

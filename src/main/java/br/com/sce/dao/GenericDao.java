@@ -24,9 +24,16 @@ public class GenericDao<T> implements IDao<T>{
 	public void salvar(T e){
 		if(em.contains(e)){
 			em.merge(e);
+			
 		}else{
 			em.persist(e);
 		}		
+	}
+	
+	@Override
+	@Transactional
+	public void atualizar(T e){
+		em.merge(e);
 	}
 
 	@Override
@@ -56,19 +63,6 @@ public class GenericDao<T> implements IDao<T>{
 	public T buscarPorId(Class<?> t, Long id) throws DaoException {
 		Object find = em.find(t, id);
 		return (T) find;
-	}
-	
-	@Override
-	public void atualizar(T entity) throws DaoException {
-		try{
-			em.getTransaction().begin();
-			em.merge(entity);
-			em.getTransaction().commit();
-		}catch(Exception e){
-			em.getTransaction().rollback();
-			throw new DaoException(e);
-		}
-		
 	}
 
 }
