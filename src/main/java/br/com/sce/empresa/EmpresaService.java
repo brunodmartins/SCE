@@ -10,7 +10,7 @@ import br.com.sce.dao.IDao;
 import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;
 
-@Service
+@Service("empresaService")
 public class EmpresaService implements IService<Empresa> {
 
 	@Autowired

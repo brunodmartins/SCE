@@ -15,7 +15,7 @@ public class LoginService implements ILoginService{
 	public void executarLogin(User user) throws Exception {
 		if(dao.validaUsuario(user)){
 			user = dao.carregarParametrizacao(user);
-			RequestContextHolder.getRequestAttributes().setAttribute("usuario", user, RequestAttributes.SCOPE_SESSION);			
+			RequestContextHolder.getRequestAttributes().setAttribute("usuario", user, RequestAttributes.SCOPE_SESSION);
 		}else{
 			throw new Exception();
 		}

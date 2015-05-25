@@ -16,7 +16,6 @@ import br.com.sce.empresa.Empresa;
  * @author bruno.martins
  *
  */
-@Service
 public interface IService<T> {
 	
 	public void salvarDados(T e) throws Exception;
