@@ -43,13 +43,19 @@ public class OrientadorService implements IService<Orientador> {
 	}
 
 	@Override
-	public List<Orientador> selecionarTodos() throws Exception {
-		return genericDao.selecionarTodos();
+	public List<Orientador> selecionarTodos() throws DaoException {
+		return genericDao.selecionarTodos(Orientador.class);
 	}
 
 	@Override
 	public Orientador buscarPorId(Long id) throws Exception {
 		return genericDao.buscarPorId(Curso.class, id);
+	}
+
+	@Override
+	public void atualizar(Orientador t) throws DaoException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

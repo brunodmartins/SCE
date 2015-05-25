@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.sce.service.IService;
 
 /**
- * @author João Padovan 
+ * @author Joï¿½o Padovan 
  */
 
 @ManagedBean
@@ -26,7 +26,7 @@ public class EmpresaController {
 	public EmpresaController() {
 		empresa = new Empresa();
 		try {
-			empresas = empresaService.selecionarTodos(Empresa.class);
+			empresas = empresaService.selecionarTodos();
 		} catch (Exception e) {
 			empresas = new ArrayList<Empresa>();
 		}

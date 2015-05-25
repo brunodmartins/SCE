@@ -33,18 +33,26 @@ public class CursoService implements IService<Curso> {
 	@Override
 	public void deletarDados(Curso curso) throws Exception {
 		if(curso.getId() == null)
-			throw new DaoException("O curso " + curso.getNome() + " não possui ID");
+			throw new DaoException("O curso " + curso.getNome() + " nï¿½o possui ID");
 		genericDao.deletar(curso);
 	}
 
-	@Override
-	public List<Curso> selecionarTodos() throws Exception {
-		return genericDao.selecionarTodos();
-	}
 
 	@Override
 	public Curso buscarPorId(Long id) throws Exception {
 		return genericDao.buscarPorId(Curso.class, id);
+	}
+
+	@Override
+	public void atualizar(Curso t) throws DaoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<Curso> selecionarTodos() throws DaoException {
+		return genericDao.selecionarTodos(Curso.class);
 	}
 
 	

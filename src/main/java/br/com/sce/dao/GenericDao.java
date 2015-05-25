@@ -18,10 +18,6 @@ public class GenericDao<T> implements IDao<T>{
 	@PersistenceContext
 	private EntityManager em;
 		
-	@SuppressWarnings("unused")
-	private Class<T> typeParameterClass;
-	
-	private final String SELECT_ALL = "from Curso";
 	
 	@Override
 	@Transactional

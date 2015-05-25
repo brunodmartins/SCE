@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.sce.dao.DaoException;
-import br.com.sce.dao.GenericDao;
 import br.com.sce.dao.IDao;
 import br.com.sce.service.BusinessException;
 import br.com.sce.service.IService;
+import br.com.sce.service.ServiceException;
 
 @Service
 public class AlunoService implements IService<Aluno> {
@@ -29,19 +29,27 @@ public class AlunoService implements IService<Aluno> {
 	@Override
 	public void deletarDados(Aluno aluno) throws DaoException {
 		if(aluno.getId() == null)
-			throw new DaoException("O aluno " + aluno.getNome() + " não possui ID");
+			throw new DaoException("O aluno " + aluno.getNome() + " nï¿½o possui ID");
 		dao.deletar(aluno);
 		
 	}
 
 	@Override
-	public List<Aluno> selecionarTodos() {
+	public Aluno buscarPorId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+
 	@Override
-	public Aluno buscarPorId(Long id) {
+	public void atualizar(Aluno t) throws DaoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<Aluno> selecionarTodos() throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
 	}

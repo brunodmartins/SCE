@@ -31,8 +31,8 @@ public class EmpresaService implements IService<Empresa> {
 	}
 
 	@Override
-	public List<Empresa> selecionarTodos(Class<?> clazz) throws Exception {
-		return genericDao.selecionarTodos(clazz);
+	public List<Empresa> selecionarTodos() throws DaoException {
+		return genericDao.selecionarTodos(Empresa.class);
 	}
 
 	@Override

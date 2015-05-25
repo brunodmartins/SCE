@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import br.com.sce.aluno.Aluno;
 import br.com.sce.dao.DaoException;
 import br.com.sce.empresa.Empresa;
 
@@ -26,5 +27,5 @@ public interface IService<T> {
 
 	void atualizar(T t) throws DaoException;
 
-	List<Empresa> selecionarTodos(Class<?> clazz) throws Exception;
+	List<T> selecionarTodos() throws DaoException;
 }
