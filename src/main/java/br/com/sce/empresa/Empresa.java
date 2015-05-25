@@ -32,6 +32,10 @@ public class Empresa {
 	@Column(unique=true)
 	private String telefone;
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Long getId() {
 		return id;
 	}
