@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.com.sce.dao.DaoException;
 import br.com.sce.service.IService;
 
 /**
@@ -25,11 +26,6 @@ public class EmpresaController {
 	
 	public EmpresaController() {
 		empresa = new Empresa();
-		try {
-			empresas = empresaService.selecionarTodos();
-		} catch (Exception e) {
-			empresas = new ArrayList<Empresa>();
-		}
 	}
 	
 	public Empresa getEmpresa() {
@@ -52,8 +48,8 @@ public class EmpresaController {
 		this.empresaService = empresaService;
 	}
 	
-	public List<Empresa> getEmpresas() {
-		return empresas;
+	public List<Empresa> getEmpresas() throws DaoException {
+		return empresaService.selecionarTodos();
 	}
 
 	public void setEmpresas(List<Empresa> empresas) {

@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Empresa {
@@ -21,6 +23,7 @@ public class Empresa {
 	private String nome;
 	
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date inicioConvenio;
 	
 	@Column
