@@ -12,45 +12,48 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pm="http://primefaces.org/mobile">
 <h:head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Pesquisa de Curso</title>
 	<link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
 
 <h:body>
 	<h:outputStylesheet name="../estrutura.css" />
+	<div class="menu">
+		<span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro
+			de Orientador</a>
+	</div>
 	<div class="titulo">
 		<p>Pesquisa de Curso</p>
 	</div>
 	<div class="conteudo">
-		<h:form>
-			<p:panel id="panel">
-				<div class="form">
-					<p:dataTable id="tabela" var="curso"
-						value="#{cursoController.cursos}">
-						<p:column headerText="ID">
-							<h:outputText value="#{curso.id}" />
-						</p:column>
-						<p:column headerText="Nome">
-							<h:outputText value="#{curso.nome}" />
-						</p:column>
-						<p:column>
-							<p:column>
-								<p:commandButton
-									actionListener="#{cursoController.deletarCurso(curso)}"
-									icon="ui-icon-close" style="margin:0" update="tabela" />
+		<div class="tabela">
+			<h:form>
+				<p:panel id="panel">
+						<p:dataTable id="tabela" var="curso"
+							value="#{cursoController.cursos}">
+							<p:column headerText="ID">
+								<h:outputText value="#{curso.id}" />
 							</p:column>
+							<p:column headerText="Nome">
+								<h:outputText value="#{curso.nome}" />
+							</p:column>
+							<p:column>
+								<p:column>
+									<p:commandButton
+										actionListener="#{cursoController.deletarCurso(curso)}"
+										icon="ui-icon-close" style="margin:0" update="tabela" />
+								</p:column>
 
-							<p:column>
-								<p:commandButton
-									action="#{cursoController.editarCurso(curso)}"
-									icon="ui-icon-plus" style="margin:0"/>
+								<p:column>
+									<p:commandButton action="#{cursoController.editarCurso(curso)}"
+										icon="ui-icon-plus" style="margin:0" />
+								</p:column>
 							</p:column>
-						</p:column>
-					</p:dataTable>
-				</div>
-			</p:panel>
-		</h:form>
+						</p:dataTable>
+				</p:panel>
+			</h:form>
+		</div>
 	</div>
 	<div class="rodape">
 		<p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos

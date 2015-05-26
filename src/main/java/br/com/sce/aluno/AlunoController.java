@@ -9,8 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import br.com.sce.curso.Curso;
-import br.com.sce.curso.CursoController;
-import br.com.sce.curso.CursoService;
+import br.com.sce.dao.DaoException;
 import br.com.sce.service.IService;
 
 /**
@@ -21,30 +20,22 @@ import br.com.sce.service.IService;
 @Scope("request")
 public class AlunoController {
 
+	@Autowired
 	private IService<Aluno> alunoService;	
 	
-	private CursoService cursoService;
+	@Autowired
+	private IService<Curso> cursoService;
 
 	private List<Curso> itensCurso = new ArrayList<Curso>();
 
 	private Aluno aluno;
 
 	private String confirmaSenha;
+	
+	private Curso cursoSelected;
 
 	public AlunoController() {
-		this.aluno = new Aluno();
-		this.alunoService = new AlunoService();		
-		this.cursoService=new CursoService();
-	}
-
-	public List<Curso> selecionarCurso() {
-		try {
-			this.setItensCurso(cursoService.selecionarTodos());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return this.getItensCurso();
+		aluno = new Aluno();
 	}
 
 	public void cadastrar() {
@@ -64,6 +55,12 @@ public class AlunoController {
 	}
 
 	public List<Curso> getItensCurso() {
+		try {
+			itensCurso = cursoService.selecionarTodos();
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return itensCurso;
 	}
 
@@ -89,6 +86,14 @@ public class AlunoController {
 
 	public void setAlunoService(AlunoService alunoService) {
 		this.alunoService = alunoService;
+	}
+
+	public Curso getCursoSelected() {
+		return cursoSelected;
+	}
+
+	public void setCursoSelected(Curso cursoSelected) {
+		this.cursoSelected = cursoSelected;
 	}
 
 }

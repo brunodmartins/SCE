@@ -48,10 +48,11 @@
 							label="email"></p:inputText>
 
 						<p:outputLabel for="curso" value="Curso" />
-						<h:selectOneMenu id="curso" value="#{alunoController.itensCurso}">
-							<f:selectItems value="#{alunoController.selecionarCurso()}" 
-							itemValue="#{curso.id}"
-							itemLabel="#{curso.nome}"	
+						<h:selectOneMenu id="curso" value="#{alunoController.cursoSelected}">
+							<f:selectItems value="#{alunoController.itensCurso}"
+								var="curso" 
+								itemValue="#{curso.id}"
+								itemLabel="#{curso.nome}"	
 							/>
 						</h:selectOneMenu>
 
