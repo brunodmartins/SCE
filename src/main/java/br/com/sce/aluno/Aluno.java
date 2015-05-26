@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.com.sce.curso.Curso;
 import br.com.sce.login.User;
@@ -20,7 +22,9 @@ public class Aluno extends User{
 	
 	@Column
 	private Long ra;
+	
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date dtNascimento;
 
 	@ManyToOne(fetch = FetchType.LAZY)

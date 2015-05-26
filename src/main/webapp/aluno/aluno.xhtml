@@ -34,17 +34,17 @@
 						<!--Nome completo do Usuário -->
 						<p:outputLabel for="nome" value="Nome Completo" />
 						<p:inputText size="50" id="nome"
-							value="#{alunoController.aluno.nome}" required="true"
-							label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
+							value="#{alunoController.aluno.nome}" 
+							label="nome" maxlength="70"></p:inputText>
 
 						<!--R.A do Usuário -->
 						<p:outputLabel for="ra" value="R.A" />
 						<p:inputMask mask="9999999" id="ra"
-							value="#{alunoController.aluno.ra}" required="true" label="ra"></p:inputMask>
+							value="#{alunoController.aluno.ra}" label="ra"></p:inputMask>
 
 						<p:outputLabel for="email" value="E-mail" />
 						<p:inputText size="30" id="email"
-							value="#{alunoController.aluno.email}" required="true"
+							value="#{alunoController.aluno.email}"
 							label="email"></p:inputText>
 
 						<p:outputLabel for="curso" value="Curso" />
@@ -58,28 +58,28 @@
 
 						<!--Data de Nascimento do Usuário -->
 						<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
-						<p:inputMask mask="99/99/9999" id="dataNascimento"
-							value="#{alunoController.aluno.dtNascimento}" required="true">
+						<p:inputText id="dataNascimento"
+							value="#{alunoController.aluno.dtNascimento}">
 							<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo"
 								type="date" />
-						</p:inputMask>
+						</p:inputText>
 
 
 						<!--Senha do Usuário -->
 						<p:outputLabel for="senha" value="Senha" />
 						<p:inputText id="senha" value="#{alunoController.aluno.password}"
-							required="true" label="senha"></p:inputText>
+							label="senha"></p:inputText>
 
 
 						<!--Confirmação da senha do Usuário -->
 						<p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
 						<p:inputText id="confirmeSenha"
-							value="#{alunoController.confirmaSenha}" required="true"
+							value="#{alunoController.confirmaSenha}"
 							label="confirmeSenha"></p:inputText>
 
 					</h:panelGrid>
 
-					<p:commandButton value="Confirmar" update="panel"
+					<p:commandButton value="Confirmar" 
 						action="#{alunoController.cadastrar()}" icon="ui-icon-check" />
 					<p:commandButton type="reset" value="Cancelar" update="panel"
 						icon="ui-icon-erro" />

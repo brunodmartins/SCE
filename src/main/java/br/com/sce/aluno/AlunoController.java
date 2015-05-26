@@ -39,11 +39,20 @@ public class AlunoController {
 	}
 
 	public void cadastrar() {
-		if (aluno.getPassword().equals(this.getConfirmaSenha())) {
-			System.out.println("Senhas iguais!");
-		} else {
-			System.out.println("Senha não são iguais!");
+//		if (aluno.getPassword().equals(this.getConfirmaSenha())) {
+//			System.out.println("Senhas iguais!");
+//		} else {
+//			System.out.println("Senha não são iguais!");
+//		}		
+		try {
+			alunoService.salvarDados(this.aluno);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		System.out.println("Gravado com Sucesso!");
+		
 	}
 
 	public IService<Aluno> getAlunoService() {
