@@ -4,72 +4,91 @@
 <!-- 
 	@autor:Letícia Soares
 	Data:30/04/2015
--->	
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile">	
+	xmlns:pm="http://primefaces.org/mobile">
 <h:head>
 
-<title>Cadastro do Aluno</title>
-<link type="text/css" rel="stylesheet" href="aluno.css" />
+	<title>Cadastro do Aluno</title>
+	<link type="text/css" rel="stylesheet" href="aluno.css" />
 </h:head>
-<h:body>	
-	<h:outputStylesheet name="aluno.css"/>	
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a><a>Cadastro de Curso</a><a>Cadastro de Empresa</a></div>	
-	<div class="titulo"><p>Cadastro do Aluno</p></div>
-	<div class="conteudo">		
+<h:body>
+	<h:outputStylesheet name="aluno.css" />
+	<div class="menu">
+		<span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro
+			de Orientador</a><a>Cadastro de Curso</a><a>Cadastro de Empresa</a>
+	</div>
+	<div class="titulo">
+		<p>Cadastro do Aluno</p>
+	</div>
+	<div class="conteudo">
 		<h:form>
 			<p:panel id="panel">
-			  <div class="form"> 			  
-				  <h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
-				  
-  			        	<!--Nome completo do Usuário -->
-				        <p:outputLabel for="nome" value="Nome Completo"/>
-				       		<p:inputText size="50" id="nome" value="#{alunoController.aluno.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
-				       					       		
-				       	<!--R.A do Usuário -->	
-				        <p:outputLabel for="ra" value="R.A" />
-				       		 <p:inputText id="ra" value="#{alunoController.aluno.ra}" required="true" label="ra"></p:inputText>
-				       		
-				        <p:outputLabel for="email" value="E-mail" />
-				        	<p:inputText size="30" id="email" value="#{alunoController.aluno.email}" required="true" label="email"></p:inputText>				        
-				        	 
- 				        <!--  Curso do Usuário -->	 			       			   
-				        <!-- <p:outputLabel for="curso" value="Curso" />
-				        <p:selectOneMenu id="curso" value="#{alunoController.aluno.curso.nome}" style="width:125px">
-				            <f:selectItem itemLabel="ADS" itemValue="ads" />
-				            <f:selectItem itemLabel="LOG" itemValue="log" />
-				            <f:selectItem itemLabel="POLi" itemValue="poli" />
-				            <f:selectItem itemLabel="COMEX" itemValue="comex" />
-				        </p:selectOneMenu> --> 			       		
-			       		 
-			       		 <!--Data de Nascimento do Usuário -->			       		 
-			       		<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
-	        				<p:inputText id="dataNascimento" value="#{alunoController.aluno.dtNascimento}" required="true">
-	        					<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo" type="date"/>
-	        				</p:inputText>
-	        					        			
+				<div class="form">
+					<h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">
 
-	        			<!--Senha do Usuário -->
-	        			<p:outputLabel for="senha" value="Senha" />
-				        	<p:inputText id="senha" value="#{alunoController.aluno.password}" required="true" label="senha"></p:inputText>  
-				        	 
-				        	 
-				        <!--Confirmação da senha do Usuário -->	 		        
-				        <!-- <p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
-				       		 <p:inputText id="confirmeSenha" value="1" required="true" label="confirmeSenha"></p:inputText> -->
-				       		             					 
-					</h:panelGrid> 
-					
-					<p:commandButton value="Confirmar" update="panel" action="#{alunoController.cadastrar()}"  icon="ui-icon-check" />
-					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />  
-				</div>				
-		    </p:panel>
+						<!--Nome completo do Usuário -->
+						<p:outputLabel for="nome" value="Nome Completo" />
+						<p:inputText size="50" id="nome"
+							value="#{alunoController.aluno.nome}" required="true"
+							label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
+
+						<!--R.A do Usuário -->
+						<p:outputLabel for="ra" value="R.A" />
+						<p:inputMask mask="9999999" id="ra"
+							value="#{alunoController.aluno.ra}" required="true" label="ra"></p:inputMask>
+
+						<p:outputLabel for="email" value="E-mail" />
+						<p:inputText size="30" id="email"
+							value="#{alunoController.aluno.email}" required="true"
+							label="email"></p:inputText>
+
+						<p:outputLabel for="curso" value="Curso" />
+						<h:selectOneMenu id="curso" value="#{alunoController.itensCurso}">
+							<f:selectItems value="#{alunoController.selecionarCurso()}" 
+							itemValue="#{curso.id}"
+							itemLabel="#{curso.nome}"	
+							/>
+						</h:selectOneMenu>
+
+						<!--Data de Nascimento do Usuário -->
+						<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
+						<p:inputMask mask="99/99/9999" id="dataNascimento"
+							value="#{alunoController.aluno.dtNascimento}" required="true">
+							<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo"
+								type="date" />
+						</p:inputMask>
+
+
+						<!--Senha do Usuário -->
+						<p:outputLabel for="senha" value="Senha" />
+						<p:inputText id="senha" value="#{alunoController.aluno.password}"
+							required="true" label="senha"></p:inputText>
+
+
+						<!--Confirmação da senha do Usuário -->
+						<p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
+						<p:inputText id="confirmeSenha"
+							value="#{alunoController.confirmaSenha}" required="true"
+							label="confirmeSenha"></p:inputText>
+
+					</h:panelGrid>
+
+					<p:commandButton value="Confirmar" update="panel"
+						action="#{alunoController.cadastrar()}" icon="ui-icon-check" />
+					<p:commandButton type="reset" value="Cancelar" update="panel"
+						icon="ui-icon-erro" />
+				</div>
+			</p:panel>
 		</h:form>
 	</div>
-	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
+	<div class="rodape">
+		<p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos
+			Reservados</p>
+	</div>
 </h:body>
 </html>
