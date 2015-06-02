@@ -14,12 +14,13 @@
 
 <h:head>
 	<title>Cadastro de Empresa</title>
-	<link type="text/css" rel="stylesheet" href="empresa.css" />
+	<link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
 
 <h:body>	
-	<h:outputStylesheet name="empresa.css"/>	
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
+	<h:outputStylesheet name="../estrutura.css"/>	
+	<ui:composition template="../Menu.xhtml">
+	<ui:define name="conteudo">
 	<div class="titulo"><p>Cadastro da Empresa</p></div>
 	<div class="conteudo">		
 		<h:form>
@@ -58,6 +59,7 @@
 		    </p:panel>
 		</h:form>
 	</div>
-	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
+	</ui:define>
+	</ui:composition>
 </h:body>
 </html>
