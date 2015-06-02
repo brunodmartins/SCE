@@ -44,12 +44,12 @@
     <filter-class>br.com.sce.security.SecuritySessionUserFilter</filter-class>
   </filter>
   
-  <filter-mapping>
+<!--  <filter-mapping>
     <filter-name>TimeFilter</filter-name>
     <servlet-name>FacesServlet</servlet-name>
   </filter-mapping>
   
-<!--    <filter-mapping>
+    <filter-mapping>
     <filter-name>UserFilter</filter-name>
     <url-pattern>/*/</url-pattern>
     <servlet-name>FacesServlet</servlet-name>

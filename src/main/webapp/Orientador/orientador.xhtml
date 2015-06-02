@@ -4,62 +4,79 @@
 <!-- 
 	@autor:Letícia Soares
 	Data:30/04/2015
--->	
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile">	
+	xmlns:pm="http://primefaces.org/mobile">
 <h:head>
 
-<title>Cadastro do Orientador</title>
-<link type="text/css" rel="stylesheet" href="cadastro.css" />
+	<title>Cadastro do Orientador</title>
+	<link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
-<h:body>	
-	<h:outputStylesheet name="cadastro.css"/>	
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
-	<div class="titulo"><p>Cadastro do Orientador</p></div>
-	<div class="conteudo">		
-		<h:form>
-			<p:panel id="panel">
-			  <div class="form"> 			  
-				  <h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
-				  
-  			        	<!--Nome completo do Usuário -->
-				        <p:outputLabel for="nome" value="Nome Completo"/>
-				       		<p:inputText id="nome" value="#{OrientadorController.Orientador.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
-				       					       		
-				       	<!--R.A do Usuário -->	
-				        <p:outputLabel for="telefone" value="Telefone" />
-				       		 <p:inputText id="telefone" value="#{OrientadorController.Orientador.telefone}" required="true" label="telefone"></p:inputText>
-				       		
-				        <!--Curso do Usuário -->	 			       			   
-				        <p:outputLabel for="curso" value="Curso" />
-				        <p:selectOneMenu id="curso" value="#{OrientadorController.Orientador.curso.nome}" style="width:125px">
-				            <f:selectItem itemLabel="ADS" itemValue="ads" />
-				            <f:selectItem itemLabel="LOG" itemValue="log" />
-				            <f:selectItem itemLabel="POLi" itemValue="poli" />
-				            <f:selectItem itemLabel="COMEX" itemValue="comex" />
-				        </p:selectOneMenu>     		
-			       		 			       		        			
-	        			<!--Senha do Usuário -->
-	        			<p:outputLabel for="senha" value="Senha" />
-				        	<p:inputText id="senha" value="#{OrientadorController.Orientador.senha}" required="true" label="senha"></p:inputText>  
-				        	
-				        	 
-				        <!--Confirmação da senha do Usuário -->	 		        
-				        <p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
-				       		 <p:inputText id="confirmeSenha" value="" required="true" label="confirmeSenha"></p:inputText>
-				       		             					 
-					</h:panelGrid> 
-					
-					<p:commandButton value="Confirmar" update="panel" action="#{OrientadorController.cadastrar()}"  icon="ui-icon-check" />
-					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />  
-				</div>				
-		    </p:panel>
-		</h:form>
-	</div>
-	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
+<h:body>
+	<h:outputStylesheet name="../estrutura.css" />
+	<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+			<div class="titulo">
+				<p>Cadastro do Orientador</p>
+			</div>
+			<div class="conteudo">
+				<h:form>
+					<p:panel id="panel">
+						<div class="form">
+							<h:panelGrid columns="2" style="margin-bottom:5px"
+								cellpadding="5">
+
+								<!--Nome completo do Usuário -->
+								<p:outputLabel for="nome" value="Nome Completo" />
+								<p:inputText id="nome"
+									value="#{OrientadorController.Orientador.nome}" required="true"
+									label="nome" maxlength="70" requiredMessage="Digite seu nome"></p:inputText>
+
+								<!--R.A do Usuário -->
+								<p:outputLabel for="telefone" value="Telefone" />
+								<p:inputText id="telefone"
+									value="#{OrientadorController.Orientador.telefone}"
+									required="true" label="telefone"></p:inputText>
+
+								<!--Curso do Usuário -->
+								<p:outputLabel for="curso" value="Curso" />
+								<p:selectOneMenu id="curso"
+									value="#{OrientadorController.Orientador.curso.nome}"
+									style="width:125px">
+									<f:selectItem itemLabel="ADS" itemValue="ads" />
+									<f:selectItem itemLabel="LOG" itemValue="log" />
+									<f:selectItem itemLabel="POLi" itemValue="poli" />
+									<f:selectItem itemLabel="COMEX" itemValue="comex" />
+								</p:selectOneMenu>
+
+								<!--Senha do Usuário -->
+								<p:outputLabel for="senha" value="Senha" />
+								<p:inputText id="senha"
+									value="#{OrientadorController.Orientador.senha}"
+									required="true" label="senha"></p:inputText>
+
+
+								<!--Confirmação da senha do Usuário -->
+								<p:outputLabel for="confirmeSenha" value="Confirme a Senha" />
+								<p:inputText id="confirmeSenha" value="" required="true"
+									label="confirmeSenha"></p:inputText>
+
+							</h:panelGrid>
+
+							<p:commandButton value="Confirmar" update="panel"
+								action="#{OrientadorController.cadastrar()}"
+								icon="ui-icon-check" />
+							<p:commandButton type="reset" value="Cancelar" update="panel"
+								icon="ui-icon-erro" />
+						</div>
+					</p:panel>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

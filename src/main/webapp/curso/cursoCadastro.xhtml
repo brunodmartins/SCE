@@ -17,7 +17,9 @@
 <link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
 <h:body>	
-	<h:outputStylesheet name="../estrutura.css"/>		
+	<h:outputStylesheet name="../estrutura.css"/>	
+	<ui:composition template="../template.xhtml">
+	<ui:define name="conteudo">		
 	<div class="titulo"><p>Cadastro de Curso</p></div>
 	<div class="conteudo">		
 		<h:form>
@@ -37,6 +39,7 @@
 		    </p:panel>
 		</h:form>
 	</div>
-	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
+	</ui:define>
+	</ui:composition>
 </h:body>
 </html>

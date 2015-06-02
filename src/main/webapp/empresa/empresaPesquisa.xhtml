@@ -4,56 +4,59 @@
 <!-- 
 	@autor:João
 	Data:20/05/2015
--->	
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile">	
+	xmlns:pm="http://primefaces.org/mobile">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Pesquisa de Empresas</title>
-	<link type="text/css" rel="stylesheet" href="empresa.css" />
+	<link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
 
 <h:body>
-	<h:outputStylesheet name="empresa.css"/>
-	<div class="menu"><span class="logo">SCE</span><a>Login</a><a>Cadastro de Estágio</a><a>Cadastro de Orientador</a></div>	
-	<div class="titulo"><p>Pesquisa de Empresas</p></div>
+	<h:outputStylesheet name="../estrutura.css" />
+	<ui:composition template="../template.xhtml">
+	<ui:define name="conteudo">
+		<div class="titulo">
+			<p>Pesquisa de Empresas</p>
+		</div>
 		<div class="tabela">
 			<h:form>
-				<p:dataTable	value="#{empresaController.empresas}"
-								var="empresa"
-								border="2"
-								rows="5"
-								scrollable="true"
-								paginator="true"
-								rendered="#{empresaController.empresas.size() > 0}">
+				<p:dataTable value="#{empresaController.empresas}" var="empresa"
+					border="2" rows="5" scrollable="true" paginator="true"
+					rendered="#{empresaController.empresas.size() > 0}">
 					<p:column headerText="Name">
 						${empresa.nome}
 					</p:column>
-						
+
 					<p:column headerText="CNPJ">
 						${empresa.cnpj}
 					</p:column>
-				
+
 					<p:column headerText="Endereço">
 						${empresa.endereco}
 					</p:column>
-				
+
 					<p:column headerText="Telefone">
 						${empresa.telefone}
 					</p:column>
-				
+
 					<p:column headerText="Inicio do Convênio">
-						<h:outputText	value="#{empresa.inicioConvenio}">
-							<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo" type="date"/>
+						<h:outputText value="#{empresa.inicioConvenio}">
+							<f:convertDateTime locale="pt_BR" timeZone="America/Sao_Paulo"
+								type="date" />
 						</h:outputText>
 					</p:column>
 				</p:dataTable>
 			</h:form>
 		</div>
+		</ui:define>
+	</ui:composition>
+
 </h:body>
 </html>

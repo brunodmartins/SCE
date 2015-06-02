@@ -4,37 +4,43 @@
 <!-- 
 	@autor:João
 	Data:20/05/2015
--->	
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile">	
+	xmlns:pm="http://primefaces.org/mobile">
 <h:head>
 
-<title>Cadastro de Empresa</title>
-<link type="text/css" rel="stylesheet" href="../estrutura.css" />
+	<title>Cadastro de Empresa</title>
+	<link type="text/css" rel="stylesheet" href="../estrutura.css" />
 </h:head>
-<h:body>	
-	<h:outputStylesheet name="../estrutura.css"/>		
-	<div class="titulo"><p>Pesquisa de Curso</p></div>
-	<div class="conteudo">		
-		<h:form>
-			<p:panel id="panel">
-			  <div class="form"> 			  
-				 <p:dataTable id="tabela" var="curso" value="#{cursoController.cursos}"> 
-					 <p:column headerText="ID">
-							<h:outputText value="#{curso.id}" />
-					 </p:column>
-					 <p:column headerText="Nome">
-							<h:outputText value="#{curso.nome}" />
-					 </p:column>
-				</p:dataTable>
-				</div>				
-		    </p:panel>
-		</h:form>
-	</div>
-	<div class="rodape"><p>Sistema de Controle de Estágio-Fatec Zl-Todos os Direitos Reservados</p></div>
+<h:body>
+	<h:outputStylesheet name="../estrutura.css" />
+	<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+			<div class="titulo">
+				<p>Pesquisa de Curso</p>
+			</div>
+			<div class="conteudo">
+				<h:form>
+					<p:panel id="panel">
+						<div class="form">
+							<p:dataTable id="tabela" var="curso"
+								value="#{cursoController.cursos}">
+								<p:column headerText="ID">
+									<h:outputText value="#{curso.id}" />
+								</p:column>
+								<p:column headerText="Nome">
+									<h:outputText value="#{curso.nome}" />
+								</p:column>
+							</p:dataTable>
+						</div>
+					</p:panel>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
