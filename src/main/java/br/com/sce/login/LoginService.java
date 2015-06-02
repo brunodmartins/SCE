@@ -1,5 +1,8 @@
 package br.com.sce.login;
 
+import javax.faces.application.FacesMessage;
+
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestAttributes;
@@ -17,7 +20,9 @@ public class LoginService implements ILoginService{
 			user = dao.carregarParametrizacao(user);
 			RequestContextHolder.getRequestAttributes().setAttribute("usuario", user, RequestAttributes.SCOPE_SESSION);
 		}else{
-			throw new Exception();
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login inválido", "Email e/ou Senha inválidos.");	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
+	        throw new Exception("Login inválido");
 		}
 			
 		

@@ -179,7 +179,7 @@
 			<version>2.3.2</version>
 		</dependency>
 
-		<!--  Java assist -->
+		<!-- Java assist -->
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
@@ -192,6 +192,14 @@
 			<artifactId>spring-orm</artifactId>
 			<version>4.1.6.RELEASE</version>
 		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.7</version>
+		</dependency>
+
+
 	</dependencies>
 
 

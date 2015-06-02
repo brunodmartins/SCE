@@ -30,11 +30,12 @@ public class LoginController {
 	public String efetuarLogin() {
 		try {
 			loginService.executarLogin(user);
+			return "/empresa/empresaCadastro?faces-redirect=true?";
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
-		return "/empresa/empresaCadastro?faces-redirect=true?";
+		return "";
+		
 		
 		
 	}
