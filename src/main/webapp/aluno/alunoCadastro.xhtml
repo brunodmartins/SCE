@@ -47,13 +47,12 @@
 									label="email"></p:inputText>
 
 								<!--  Curso do Usuário -->
-								<!-- <p:outputLabel for="curso" value="Curso" />
-				        <p:selectOneMenu id="curso" value="#{alunoController.aluno.curso.nome}" style="width:125px">
-				            <f:selectItem itemLabel="ADS" itemValue="ads" />
-				            <f:selectItem itemLabel="LOG" itemValue="log" />
-				            <f:selectItem itemLabel="POLi" itemValue="poli" />
-				            <f:selectItem itemLabel="COMEX" itemValue="comex" />
-				        </p:selectOneMenu> -->
+								<p:outputLabel for="curso" value="Curso" />
+								<p:selectOneMenu id="curso"
+									value="#{alunoController.aluno.curso}" style="width:200px" converter="#{cursoConverter}" >
+									<f:selectItems value="#{alunoController.cursos}" var="curso"
+										itemLabel="#{curso.nome}" itemValue="#{curso.id}"  />
+								</p:selectOneMenu>
 
 								<!--Data de Nascimento do Usuário -->
 								<p:outputLabel for="dataNascimento" value="Data de Nascimento" />

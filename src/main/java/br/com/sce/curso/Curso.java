@@ -1,5 +1,6 @@
 package br.com.sce.curso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,13 @@ import javax.persistence.OneToMany;
 import br.com.sce.aluno.Aluno;
 
 @Entity
-public class Curso {
+public class Curso implements Serializable {
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7321792839746522657L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -54,5 +60,15 @@ public class Curso {
 	public String toString() {
 		return "Curso [id=" + id + ", nome=" + nome + "]";
 	}	
+	
+	@Override
+	public int hashCode() {
+		return Long.valueOf(id).intValue();
+	}
+	@Override
+	public boolean equals(Object obj) {	
+		return obj.hashCode() == hashCode();
+	}
+	
 
 }

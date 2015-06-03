@@ -24,21 +24,21 @@
 				<p>Pesquisa de Curso</p>
 			</div>
 			<div class="conteudo">
+			<div class="tabela">
 				<h:form>
-					<p:panel id="panel">
-						<div class="form">
-							<p:dataTable id="tabela" var="curso"
-								value="#{cursoController.cursos}">
-								<p:column headerText="ID">
-									<h:outputText value="#{curso.id}" />
-								</p:column>
-								<p:column headerText="Nome">
-									<h:outputText value="#{curso.nome}" />
-								</p:column>
-							</p:dataTable>
-						</div>
-					</p:panel>
+
+					<p:dataTable id="tabela" var="curso"
+						value="#{cursoController.cursos}" border="2" rows="5"
+						scrollable="true" paginator="true">
+						<p:column headerText="ID">
+							<h:outputText value="#{curso.id}" />
+						</p:column>
+						<p:column headerText="Nome">
+							<h:outputText value="#{curso.nome}" />
+						</p:column>
+					</p:dataTable>
 				</h:form>
+			</div>
 			</div>
 		</ui:define>
 	</ui:composition>

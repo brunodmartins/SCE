@@ -25,13 +25,13 @@
 		<h:form>
 			<p:panel id="panel">
 			  <div class="form"> 			  
-				  <h:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
+				  <p:panelGrid columns="2" style="margin-bottom:5px" cellpadding="5">	
 				  
   			        	<!--Nome do Curso -->
 				        <p:outputLabel for="nome" value="Nome:"/>
 				       		<p:inputText id="nome" value="#{cursoController.curso.nome}" required="true" label="nome" maxlength="70" requiredMessage="Digite o nome da curso"/>				       					       						       
 	        					        				             					 
-					</h:panelGrid> 
+					</p:panelGrid> 
 					
 					<p:commandButton value="Confirmar" update="panel" action="#{cursoController.salvarCurso()}"  icon="ui-icon-check" />
 					<p:commandButton type="reset" value="Cancelar" update="panel" icon="ui-icon-erro" />					

@@ -2,12 +2,11 @@ package br.com.sce.empresa;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
 
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -47,16 +46,15 @@ public class EmpresaController {
 		this.empresaService = empresaService;
 	}
 	
-	public IService<Empresa> getEmpresaService() {
-		return empresaService;
-	}
-
-	public void setEmpresaService(IService<Empresa> empresaService) {
-		this.empresaService = empresaService;
-	}
-	
-	public List<Empresa> getEmpresas() throws DaoException {
-		return empresaService.selecionarTodos();
+		
+	public List<Empresa> getEmpresas(){		
+		try {
+			return empresaService.selecionarTodos();
+		} catch (DaoException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
+		}
+		return empresas;
 	}
 
 	public void setEmpresas(List<Empresa> empresas) {

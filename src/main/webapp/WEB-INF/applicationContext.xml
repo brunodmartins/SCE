@@ -14,7 +14,7 @@
 	<aop:aspectj-autoproxy />
 	<tx:annotation-driven />
 	
-	
+	<bean class="br.com.sce.curso.CursoConverter"/>
 	<bean class = "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 	<!-- Datasource para desenvolvimento -->
 	<bean id="dataSource"

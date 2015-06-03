@@ -2,6 +2,9 @@ package br.com.sce.curso;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,7 @@ public class CursoController {
 	
 	private List<Curso> cursos;
 	
+	
 	public CursoController() {
 		curso = new Curso();
 	}
@@ -26,9 +30,11 @@ public class CursoController {
 	public void salvarCurso(){
 		try {
 			service.salvarDados(curso);
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Curso cadastrado com sucesso!");	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
 		}
 	}
 
@@ -41,6 +47,12 @@ public class CursoController {
 	}
 
 	public List<Curso> getCursos() {
+		try {
+			return cursos = service.selecionarTodos();
+		} catch (Exception e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
+		}
 		return cursos;
 	}
 
@@ -48,5 +60,6 @@ public class CursoController {
 		this.cursos = cursos;
 	}
 
+	
 	
 }

@@ -63,7 +63,7 @@ a:hover{
   margin-left: 20px;
 }
 .titulo{
-	  top: 45px;
+	  top: 8%;
 	  left: 0;
 	  background-color: #E5DBDB;	   
 	  text-align: left;
@@ -86,7 +86,7 @@ a:hover{
   left: 0;
   height: 82%;
   top: 86px;
-  position: absolute;
+  position: relative;
 
 }
 .form{	
