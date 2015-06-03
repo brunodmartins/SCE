@@ -29,7 +29,7 @@ public class Curso implements Serializable {
 	@Column(unique=true)
 	private String nome;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "curso")
 	private List<Aluno> alunos = new ArrayList<Aluno>(0);
 
 	public List<Aluno> getAlunos() {

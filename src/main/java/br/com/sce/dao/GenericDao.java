@@ -42,7 +42,7 @@ public class GenericDao<T> implements IDao<T>{
 	@Override
 	public List<T> selecionarTodos(Class<?> clazz) throws DaoException {
 		try{
-			Query query = em.createQuery("from " + clazz.getName());
+			Query query = em.createQuery("select e from " + clazz.getName() + " e ");
 			List<T> list = query.getResultList();						
 			return list;
 		}catch(Exception e){

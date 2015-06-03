@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	@autor:João
+	Data:20/05/2015
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:head>
+
+	<title>Cadastro de Empresa</title>
+	<link type="text/css" rel="stylesheet" href="../estrutura.css" />
+</h:head>
+<h:body>
+	<h:outputStylesheet name="../estrutura.css" />
+	<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+			<div class="titulo">
+				<p>Pesquisa de Aluno</p>
+			</div>
+			<div class="conteudo">
+			<div class="tabela">
+				<h:form>
+
+					<p:dataTable id="tabela" var="aluno"
+						value="#{alunoController.alunos}" border="2" rows="5"
+						scrollable="true" paginator="true">
+						<p:column headerText="ID">
+							<h:outputText value="#{aluno.id}" />
+						</p:column>
+						<p:column headerText="Nome">
+							<h:outputText value="#{aluno.nome}" />
+						</p:column>
+						<p:column headerText="RA">
+							<h:outputText value="#{aluno.ra}" />
+						</p:column>
+						<p:column headerText="Dt Nascimento">
+							<h:outputText value="#{aluno.dtNascimento}" />
+						</p:column>
+						<p:column headerText="Email">
+							<h:outputText value="#{aluno.email}" />
+						</p:column>
+						<p:column headerText="Senha">
+							<h:outputText value="#{aluno.password}" />
+						</p:column>
+						<p:column headerText="Curso">
+							<h:outputText value="#{aluno.curso.nome}" />
+						</p:column>
+						
+					</p:dataTable>
+				</h:form>
+			</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

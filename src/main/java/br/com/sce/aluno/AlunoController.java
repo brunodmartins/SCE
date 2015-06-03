@@ -28,6 +28,8 @@ public class AlunoController {
 	private IService<Curso> cursoService;
 
 	private List<Curso> cursos;
+	
+	private List<Aluno> alunos;
 
 	private Aluno aluno;
 	
@@ -80,6 +82,20 @@ public class AlunoController {
 
 	public void setCursoSelected(Curso cursoSelected) {
 		this.cursoSelected = cursoSelected;
+	}
+
+	public List<Aluno> getAlunos() {
+		try {
+			return alunoService.selecionarTodos();
+		} catch (DaoException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
+		}
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 }

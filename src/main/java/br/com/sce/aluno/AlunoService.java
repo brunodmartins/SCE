@@ -50,8 +50,7 @@ public class AlunoService implements IService<Aluno> {
 
 	@Override
 	public List<Aluno> selecionarTodos() throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selecionarTodos(Aluno.class);
 	}
 
 	
